@@ -1,0 +1,89 @@
+<div class="container" *ngFor="let traffic of traffics">
+   <h1 class="heading__primary">{{traffic.trafficName}}</h1>
+</div>
+
+
+<section class="section-page" *ngIf="traffics && traffics.length">
+   <div class="container-page" *ngFor="let traffic of traffics">
+    <img [src]='traffic.trafficImage1' alt="" class="page-image">
+    <div class="page-text">
+      <h1 class="small-caps">
+        {{traffic.trafficHeader}}
+        <br class="hidden-x">
+        {{traffic.trafficHeader1}}
+      </h1>
+      <span style="color: #000;">{{traffic.trafficSpan}}</span>
+      <p class="long-plan">
+       {{traffic.description2}}
+      </p>
+      <a href="#"><p class="long-paln" style="color: #6979FB; margin-left: 1rem;">see more <span><img [src]='traffic.trafficSpan2' alt="" class="span__image"></span></p></a>
+    </div>
+   </div>
+</section>
+
+
+<section class="section-panel" *ngIf="traffics && traffics.length">
+    <div class="row-panel" *ngFor="let traffic of traffics">
+      <img [src]='traffic.trafficImage' alt="" class="panel-image">
+      <div class="text">
+          <h1 class="flush-panel">
+            {{traffic.trafficHeader}}
+            <br class="hidden-xs">
+            {{traffic.trafficHeader1}}
+          </h1>
+          <span style="color: #000;">{{traffic.trafficSpan}}</span>
+          <p class="long-panel">
+            {{traffic.description1}}
+            <br class="hidden-xs">
+            {{traffic.description2}}
+            <br class="hidden-xs">
+            {{traffic.description3}}
+          </p>
+          <p class="no-pad demi">
+            see more <span><img [src]='traffic.trafficSpan2' alt="" class="span__image"></span>
+          </p>
+      </div>
+    </div>
+    <div class="row-panel" *ngFor="let traffic of traffics">
+      <img [src]='traffic.trafficImage1' alt="" class="panel-image">  
+      <div class="text">
+          <h1 class="flush-panel">
+            {{traffic.trafficHeader}}
+            <br class="hidden-xs">
+            {{traffic.trafficHeader1}}
+          </h1>
+          <span style="color: #000;">{{traffic.trafficSpan}}</span>
+          <p class="long-panel">
+            {{traffic.description1}}
+            <br class="hidden-xs">
+            {{traffic.description2}}
+            <br class="hidden-xs">
+            {{traffic.description3}}
+          </p>
+          <p class="no-pad demi">
+            see more <span><img [src]='traffic.trafficSpan2' alt="" class="span__image"></span>
+          </p>
+      </div>
+    </div>
+    <div class="row-panel" *ngFor="let traffic of traffics">
+      <img [src]='traffic.trafficImage2' alt="" class="panel-image">
+      <div class="text">
+          <h1 class="flush-panel">
+            {{traffic.trafficHeader}}
+            <br class="hidden-xs">
+            {{traffic.trafficHeader1}}
+          </h1>
+          <span style="color: #000;">{{traffic.trafficSpan}}</span>
+          <p class="long-panel">
+            {{traffic.description1}}
+            <br class="hidden-xs">
+            {{traffic.description2}}
+            <br class="hidden-xs">
+            {{traffic.description3}}
+          </p>
+          <p class="no-pad demi">
+            see more <span><img [src]='traffic.trafficSpan2' alt="" class="span__image"></span>
+          </p>
+      </div>
+    </div>
+  </section>

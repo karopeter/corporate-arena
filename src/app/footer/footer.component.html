@@ -1,0 +1,43 @@
+<footer class="footer">
+   <div class="row">
+     <div class="col-1-of-4">
+        <div class="footer__logo-box">
+          <img src="/assets/img/logo.png" alt="" class="footer__logo">
+        </div>
+        <p class="footer__copy">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          <br class="hidden-xs"> 
+          Architecto illum voluptatem dolor, quaerat itaque sed, 
+          <br class="hidden-xs">
+          autem veniam porro mollitia facilis nulla facere laborum, 
+          <br class="hidden-xs">
+          optio omnis animi quas nihil quos? Similique.
+        </p>
+     </div>
+     <div class="col-1-of-4">
+        <h1 class="footer__heading">Quicklinks</h1>
+        <ul class="footer__list">
+          <li class="footer__item" *ngFor="let name of names"><a href="#" class="footer__link">{{ name }}</a></li>
+        </ul>
+     </div>
+     <div class="col-1-of-4">
+       <h1 class="footer__heading">Contact Us</h1>
+       <p class="footer__page">(+234) 808 198 7023</p>
+       <p class="footer__page">www.corporatearenas.com</p>
+       <p class="footer__page">corporateworldarenas@gmail.com</p>
+     </div>
+     <div class="col-1-of-4">
+       <p class="footer__down">
+         Terms and Conditions
+         <br class="hidden-xs">
+         Faq
+       </p>
+     </div>
+   </div>
+   <ul class="footer__list">
+    <li class="footer__end"><a href="#" class="footer__side">Site Credit</a></li>
+    <li class="footer__end"><a href="#" class="footer__side">Privacy Policy</a></li>
+  </ul>
+</footer>
+
+<app-footer-main></app-footer-main>

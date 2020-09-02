@@ -1,0 +1,134 @@
+$color-primary: #ffffff;
+$color-light-1: #3F3356;
+$color-primary-blue: #505f98;
+$color-light-2: #fbfcff;
+
+// GRID
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 2rem;
+
+.section-click {
+  background: $color-light-2;
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+       padding: 10rem 0;
+    }
+  }
+}
+
+.click-image {
+  display: grid;
+  float: right;
+  position: relative;
+  vertical-align: baseline;
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+      display: grid;
+      float: right;
+      position: relative;
+      vertical-align: baseline;
+      width: 40%;
+      height: 40%;
+    }
+  }
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+      width: 20%;
+      height: 20%;
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+
+.header__light {
+  margin-top: 10rem;
+  font-size: 2.5rem;
+  text-align: center;
+  color: $color-light-1;
+  font-weight: bold;
+}
+
+.page__indent {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: $color-primary-blue;
+  line-height: 1.5rem;
+  word-spacing: 1px;
+}
+
+
+.images {
+  width: 110%;
+  height: 100%;
+  margin-left: 2.5rem;
+  margin-top: 3rem;
+}
+
+
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+  }
+  
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @mixin respond($breakpoint) {
+        @if $breakpoint == tab-port {
+          margin-right: 0;
+          margin-bottom: $gutter-vertical-small;
+        }
+      }
+    }
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+  .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+  }
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+  .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+  }
+  .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+  }
+}

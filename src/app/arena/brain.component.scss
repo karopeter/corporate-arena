@@ -1,0 +1,65 @@
+$color-primary: #ffffff;
+$color-dark: #000000;
+$color-light-purple: rgba(199, 23, 199, 0.904);
+
+.section-brain {
+  background-color: $color-primary;
+  margin-top: 2rem;
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+      padding: 2rem;
+    }
+  }
+}
+
+.heading-primary {
+  text-align: center;
+  margin-top: 6rem;
+  font-size: 2rem;
+  font-weight: 200;
+  color: $color-dark;
+}
+
+.heading-secondary {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: $color-dark;
+  font-weight: 100;
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+.heading-secondary:after {
+  display: block;
+  height: 3px;
+  content: " ";
+  width: 150px;
+  margin: 0 auto;
+  background-color: $color-light-purple;
+  margin-top: 1rem;
+}
+
+.brain-image {
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+      width: 40%;
+      height: 40%;
+      padding: 2rem;
+    }
+  }
+  @mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+      width: 20%;
+      height: 20%;
+      padding: 1rem;
+    }
+  }
+}

@@ -1,0 +1,326 @@
+<div class="container" *ngFor="let vacancies of vacancies">
+  <h1 class="heading__primary">{{vacancies.vacanciesName}}</h1>
+  <ul>
+   <li>
+    <form class="form-inline my-2 my-lg-0">
+      <input type="text" class="form-control mr-sm-2" placeholder="Accountant" style="margin-top: 2rem; margin-left: 20rem;">
+   </form>
+   </li>
+    <li>
+      <form class="form-inline my-2 my-lg-0">
+        <input type="text" class="form-control mr-sm-2" placeholder="Lagos"><span><button class="btn btn-outline-light my-2 my-sm-0" style="margin-top: 2rem; background-color: purple;">Search</button></span>
+     </form>
+    </li>
+  </ul>
+</div>
+
+<section class="section-plan" *ngIf="vacancies && vacancies.length">
+   <div class="row" *ngFor="let vacancies of vacancies">
+     <div class="col-1-of-5">
+       <h2 class="heading__secondary">
+         Featured 
+         <br class="hidden-xs">
+         Jobs
+       </h2>
+     </div>
+     <div class="col-1-of-5">
+      <div class="plan__box--1">
+        <span><a href="#" class="flex__item">Full Time</a></span>
+         <figure class="review">
+           <figcaption class="review__user">
+             <img src="/assets/img/arenas4.svg" alt="" class="review__photo">
+           </figcaption>
+         </figure>
+         <a href="" class="side__angle">Google LLC</a>
+         <h3 class="heading__figure">{{vacancies.description4}}</h3>
+         <p class="long__figure">
+          Lorem ipsum dolor, sit amet 
+          <br class="hidden-xs">
+          consectetur adipisicing elit. 
+          <br class="hidde-xs">
+          Laborum architecto aliquid 
+        </p>
+        <div class="col-1-of-2">
+          <img src="/assets/img/box.svg" alt="" class="list__image"><span style="color: #000;">2d</span>
+        </div>
+        <div class="col-1-of-2">
+          <img src="/assets/img/location2.svg" alt="" class="list__image--1"><span style="color: #000;">Lagos</span>
+        </div>
+      </div>
+     </div>
+     <div class="col-1-of-5">
+      <div class="plan__box--2">
+        <span><a href="#" class="flex__item" style="color: #fff;">Full Time</a></span>
+         <figure class="review">
+           <figcaption class="review__user">
+             <img src="/assets/img/arenas4.svg" alt="" class="review__photo">
+           </figcaption>
+         </figure>
+         <a href="" class="side__angle" style="color: rgb(240, 240, 6);">Google LLC</a>
+         <h3 class="heading__figure" style="color: #fff;">{{vacancies.description4}}</h3>
+         <p class="long__figure" style="color: #fff;">
+          Lorem ipsum dolor, sit amet 
+          <br class="hidden-xs">
+          consectetur adipisicing elit. 
+          <br class="hidde-xs">
+          Laborum architecto aliquid 
+        </p>
+        <div class="col-1-of-2">
+          <img src="/assets/img/box.svg" alt="" class="list__image"><span style="color: #fff;">2d</span>
+        </div>
+        <div class="col-1-of-2">
+          <img src="/assets/img/location2.svg" alt="" class="list__image--1"><span style="color: #fff;">Lagos</span>
+        </div>
+      </div>
+     </div>
+     <div class="col-1-of-5">
+      <div class="plan__box--1">
+        <span><a href="#" class="flex__item">Full Time</a></span>
+         <figure class="review">
+           <figcaption class="review__user">
+             <img src="/assets/img/arenas4.svg" alt="" class="review__photo">
+           </figcaption>
+         </figure>
+         <a href="" class="side__angle">Google LLC</a>
+         <h3 class="heading__figure">{{vacancies.description4}}</h3>
+         <p class="long__figure">
+          Lorem ipsum dolor, sit amet 
+          <br class="hidden-xs">
+          consectetur adipisicing elit. 
+          <br class="hidde-xs">
+          Laborum architecto aliquid 
+        </p>
+        <div class="col-1-of-2">
+          <img src="/assets/img/box.svg" alt="" class="list__image"><span style="color: #000;">2d</span>
+        </div>
+        <div class="col-1-of-2">
+          <img src="/assets/img/location2.svg" alt="" class="list__image--1"><span style="color: #000;">Lagos</span>
+        </div>
+      </div>
+     </div>
+     <div class="col-1-of-5">
+      <div class="plan__box--1">
+        <span><a href="#" class="flex__item">Full Time</a></span>
+         <figure class="review">
+           <figcaption class="review__user">
+             <img src="/assets/img/arenas4.svg" alt="" class="review__photo">
+           </figcaption>
+         </figure>
+         <a href="" class="side__angle">Google LLC</a>
+         <h3 class="heading__figure">{{vacancies.description4}}</h3>
+         <p class="long__figure">
+          Lorem ipsum dolor, sit amet 
+          <br class="hidden-xs">
+          consectetur adipisicing elit. 
+          <br class="hidde-xs">
+          Laborum architecto aliquid 
+        </p>
+        <div class="col-1-of-2">
+          <img src="/assets/img/box.svg" alt="" class="list__image"><span style="color: #000;">2d</span>
+        </div>
+        <div class="col-1-of-2">
+          <img src="/assets/img/location2.svg" alt="" class="list__image--1"><span style="color: #000;">Lagos</span>
+        </div>
+      </div>
+     </div>
+   </div>
+</section>
+
+
+<section class="section-figure" *ngIf="vacancies && vacancies.length">
+   <div class="row" *ngFor="let vacancies of vacancies">
+     <h2 class="heading__secondary">{{vacancies.vacanciesName1}}</h2>
+   </div>
+   <div class="row" *ngFor="let vacancies of vacancies">
+     <div class="col-1-of-4">
+        <img [src]='vacancies.vacanciesImage1' alt="" class="figure__image">
+        <h3 class="heading__tertiary">
+          Information and
+          <br class="hidden-xs">
+          Communication Technology
+        </h3>
+        <p class="long__copy">
+          Lorem ipsum dolor, sit amet 
+          <br class="hidden-xs">
+          consectetur adipisicing elit. 
+          <br class="hidde-xs">
+          Laborum architecto aliquid 
+        </p>
+     </div>
+     <div class="col-1-of-4">
+       <img [src]='vacancies.vacanciesImage2' alt="" class="figure__image">
+       <h3 class="heading__tertiary">
+         Project 
+         <br class="hidden-xs">
+         Management 
+       </h3>
+       <p class="long__copy">
+        Lorem ipsum dolor, sit amet 
+        <br class="hidden-xs">
+        consectetur adipisicing elit. 
+        <br class="hidde-xs">
+        Laborum architecto aliquid 
+      </p>
+     </div>
+     <div class="col-1-of-4">
+       <img [src]='vacancies.vacanciesImage3' alt="" class="figure__image">
+        <h3 class="heading__tertiary">
+          Banking and 
+          <br class="hidden-xs">
+           Finance
+        </h3>
+        <p class="long__copy">
+          Lorem ipsum dolor, sit amet 
+          <br class="hidden-xs">
+          consectetur adipisicing elit. 
+          <br class="hidde-xs">
+          Laborum architecto aliquid 
+        </p>
+     </div>
+     <div class="col-1-of-4">
+       <img [src]='vacancies.vacanciesImage4' alt="" class="figure__image">
+       <h3 class="heading__tertiary">
+          Business
+          <br class="hidden-xs">
+          Development
+       </h3>
+       <p class="long__copy">
+        Lorem ipsum dolor, sit amet 
+        <br class="hidden-xs">
+        consectetur adipisicing elit. 
+        <br class="hidde-xs">
+        La
+     </div>
+   </div>
+   <div class="row" *ngFor="let vacancies of vacancies">
+    <div class="col-1-of-4">
+       <img [src]='vacancies.vacanciesImage1' alt="" class="figure__image">
+       <h3 class="heading__tertiary">
+         Information and
+         <br class="hidden-xs">
+         Communication Technology
+       </h3>
+       <p class="long__copy">
+         Lorem ipsum dolor, sit amet 
+         <br class="hidden-xs">
+         consectetur adipisicing elit. 
+         <br class="hidde-xs">
+         Laborum architecto aliquid 
+       </p>
+    </div>
+    <div class="col-1-of-4">
+      <img [src]='vacancies.vacanciesImage2' alt="" class="figure__image">
+      <h3 class="heading__tertiary">
+        Project 
+        <br class="hidden-xs">
+        Management 
+      </h3>
+      <p class="long__copy">
+       Lorem ipsum dolor, sit amet 
+       <br class="hidden-xs">
+       consectetur adipisicing elit. 
+       <br class="hidde-xs">
+       Laborum architecto aliquid 
+     </p>
+    </div>
+    <div class="col-1-of-4">
+      <img [src]='vacancies.vacanciesImage3' alt="" class="figure__image">
+       <h3 class="heading__tertiary">
+         Banking and 
+         <br class="hidden-xs">
+          Finance
+       </h3>
+       <p class="long__copy">
+         Lorem ipsum dolor, sit amet 
+         <br class="hidden-xs">
+         consectetur adipisicing elit. 
+         <br class="hidde-xs">
+         Laborum architecto aliquid 
+       </p>
+    </div>
+    <div class="col-1-of-4">
+      <img [src]='vacancies.vacanciesImage4' alt="" class="figure__image">
+      <h3 class="heading__tertiary">
+         Business
+         <br class="hidden-xs">
+         Development
+      </h3>
+      <p class="long__copy">
+       Lorem ipsum dolor, sit amet 
+       <br class="hidden-xs">
+       consectetur adipisicing elit. 
+       <br class="hidde-xs">
+       La
+       </p>
+    </div>
+  </div>
+</section>
+
+<section class="section__inset" *ngIf="vacancies && vacancies.length">
+  <div class="row" *ngFor="let vacancies of vacancies">
+    <div class="col-1-of-4">
+     <div class="inset__box">
+       <h3 class="heading__tertiary">{{vacancies.description}}</h3>
+       <p class="long__copy">
+        Lorem ipsum dolor, sit amet 
+        <br class="hidden-xs">
+        consectetur adipisicing elit. 
+        <br class="hidde-xs">
+        La
+        </p>
+        <a href="#" class="btn-text" style="margin-left: 4rem; color: purple;">{{vacancies.vacanciesButton}} &rarr;</a>
+     </div>
+    </div>
+    <div class="col-1-of-4">
+       <div class="inset__box">
+          <h3 class="heading__tertiary">{{vacancies.description1}}</h3>
+          <p class="long__copy">
+            Lorem ipsum dolor, sit amet 
+            <br class="hidden-xs">
+            consectetur adipisicing elit. 
+            <br class="hidde-xs">
+            La
+          </p>
+          <a href="#" class="btn-text" style="margin-left: 4rem; color: purple;">{{vacancies.vacanciesButton}} &rarr;</a>
+       </div>
+    </div>
+    <div class="col-1-of-4">
+       <div class="inset__box">
+         <h3 class="heading__tertiary">{{vacancies.description2}}</h3>
+         <p class="long__copy">
+          Lorem ipsum dolor, sit amet 
+          <br class="hidden-xs">
+          consectetur adipisicing elit. 
+          <br class="hidde-xs">
+          La
+        </p>
+        <a href="#" class="btn-text" style="margin-left: 4rem; color: purple;">{{vacancies.vacanciesButton}} &rarr;</a>
+       </div>
+    </div>
+    <div class="col-1-of-4">
+      <div class="inset__box">
+        <h3 class="heading__tertiary">{{vacancies.description3}}</h3>
+        <p class="long__copy">
+          Lorem ipsum dolor, sit amet 
+          <br class="hidden-xs">
+          consectetur adipisicing elit. 
+          <br class="hidde-xs">
+          La
+        </p>
+        <a href="#" class="btn-text" style="margin-left: 4rem; color: purple;">{{vacancies.vacanciesButton}} &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section-features">
+    <div clas="container">
+      <h1 class="heading__light">Subscribe to our newsletter</h1>
+      <p>Mauris sollicitudin, magna nec portitor efficitur, quam ex.</p>
+    </div>
+    <form class="form-inline" style="margin-left: 22rem;">
+      <input class="form-control mr-sm-2" type="sign up" placeholder="Email Address" aria-label="Email Address">
+      <a href="#"><button class="btn btn-outline-dark my-2 my-sm-0" type="Subscribe" style="color: #fff; border-radius: 1px solid white;">Subscribe</button></a>
+    </form>
+</section>

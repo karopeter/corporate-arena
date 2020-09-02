@@ -1,0 +1,71 @@
+$color-primary-blue: #505f98;
+$color-primary: #fff;
+$color-light-grey: #E5E7FA;
+$color-light-1: #3F3356;
+$color-secondary-blue: #A5AFFB;
+$color-dark: #000;
+
+
+ul {
+  margin: 0px;
+  padding: 1rem 2rem;
+  list-style: none;
+  display: flex;
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+      top: 4rem;
+      right: 4rem;
+      display: inline-block;
+    }
+  }
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+      top: 3rem;
+      right: 3rem;
+      display: inline-block;
+      padding: 2rem;
+    }
+  }
+
+  li {
+    align-items: center;
+    width: 10rem;
+    background-color: $color-primary;
+    font-size: 1rem;
+    justify-content: space-between;
+
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+         top: 4.5rem;
+         right: 4.5rem;
+         align-items: center;
+         width: 10rem;
+         background-color: $color-primary;
+         font-size: 1rem;
+         justify-content: space-between;
+        
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-primary-blue;
+  }
+}
+
+
+.logo-img {
+  height: 2rem;
+  width: 4.5rem;
+  margin-left: 8rem;
+  margin-top: 1rem;
+}
+
+.inside__nav {
+  margin-left: 8rem;
+  margin-top: 1.5rem;
+}
+

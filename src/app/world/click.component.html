@@ -1,0 +1,21 @@
+<section class="section-click" *ngIf="clicks && clicks.length">
+  <img src="/assets/img/arenas10.svg" alt="" class="click-image">
+   <div class="container" *ngFor="let click of clicks">
+     <h1 class="header__light">{{click.clickName}}</h1>
+     <p class="page__indent">
+      {{click.description1}}
+      <br class="hidden-xs">
+      {{click.description2}}
+      <br class="hidden-xs">
+      {{click.description3}}
+     </p>
+   </div>
+   <div class="row" *ngFor="let click of clicks">
+     <div class="col-1-of-2">
+      <img  *ngIf="showImage" [src]='click.urlImage2' alt="" class="images">
+     </div>
+     <div class="col-1-of-2">
+      <img *ngIf="showImage" [src]='click.urlImage1' alt="" class="images">
+     </div>
+   </div>
+</section>

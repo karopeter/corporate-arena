@@ -1,0 +1,27 @@
+<section class="section-world" *ngIf="worlds && worlds.length">
+   <div class="container" *ngFor="let world of worlds">
+     <h3 class="heading-primary">
+       {{world.worldName}}
+       <br class="hidden-xs">
+       {{world.worldName1}}
+      </h3>
+      <p class="page__indent">
+       {{world.description1}}
+       <br class="hidden-xs">
+       {{world.description2}}
+       <br class="hidden-xs">
+       {{world.description3}}
+      </p>
+      <a href="#" class="btn btn-ghost">
+        {{world.worldButton}}
+      </a>
+   </div>
+   <div *ngFor="let world of worlds">
+     <img *ngIf="showImage" [src]='world.imageUrl' alt="" class="world-image">
+   </div>
+   <div class="image">
+    <img src="/assets/img/arenas11.svg" alt="">
+  </div>
+</section>
+
+<app-click></app-click>

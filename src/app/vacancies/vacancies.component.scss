@@ -1,0 +1,281 @@
+// GRID
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 2rem;
+
+$color-primary-blue: #505f98;
+$color-primary-light: #ffffff;
+$color-light-gray: #FFE8DA;
+$color-dark: #000;
+$color-dark-1: rgb(141, 135, 135);
+$color-primary-purple: #BD7AE3;
+$color-primary-purple-1: #8461C9;
+$color-secondary-gray: #F7F5F9;
+$color-primary-grey: #ECE9F1;
+
+.heading__primary {
+   text-align: center;
+   margin-top: 2rem;
+   font-size: 2rem;
+   font-weight: 400;
+   color: $color-primary-blue;
+}
+
+.heading__secondary {
+  text-align: left;
+  color: $color-primary-blue;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-left: 2rem;
+  margin-top: 4rem;
+}
+
+.heading__tertiary {
+  text-align: left;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  color: $color-dark;
+  margin-top: 1rem;
+  line-height: 1.5rem;
+}
+
+.heading__light {
+  text-align: center;
+  margin-top: 6rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: $color-primary-light;
+}
+
+.heading__figure {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: $color-dark;
+  font-weight: 200;
+  text-align: left;
+}
+
+.long__figure {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: $color-dark-1;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+ul {
+  list-style: none;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.section-figure {
+  background-color: $color-primary-light;
+}
+
+.figure__image {
+  background-color: $color-light-gray;
+  margin-left: 2rem;
+}
+
+.long__copy {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: $color-dark;
+  margin-left: 1rem;
+  text-align:  left;
+}
+
+p {
+  margin-top: 2rem;
+  color: $color-primary-light;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.section-features {
+  background-image: linear-gradient(to right bottom, rgba($color-primary-purple, 0.8), rgba($color-primary-purple-1, 0.8)), url(/assets/img/arenas15.jpg);
+  background-size: cover;
+  width: 80%;
+  height: 400px;
+  overflow: hidden;
+  background-position: 50%;
+  margin-top: 4rem;
+  margin-left: 10rem;
+  margin-bottom: 5rem;
+}
+
+.section__inset {
+  padding: 10rem 0;
+  background-color: $color-secondary-gray;
+  background-size: cover;
+  margin-top: 5rem;
+}
+
+.inset__box {
+  background-color: $color-primary-light;
+  font-size: 1rem;
+  padding: 3.5rem;
+  box-shadow: 0 5rem 7rem rgba($color-dark, .15);
+  text-align: center;
+  border-radius: 6px;
+  transition: transform .3s;
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+}
+
+.section-plan {
+   background-color: $color-primary-light;
+}
+
+.plan__box--1 {
+   background-color: rgba($color-primary-grey, .8);
+  font-size: 1rem;
+  padding: 2rem;
+  box-shadow: 0 1.5rem 4rem rgba($color-dark, .10);
+  text-align: center;
+  border-radius: 3px;
+  transition: transform .3s;
+  margin-top: 4rem;
+}
+
+
+.plan__box--2 {
+  background-color: rgba($color-primary-blue, .8);
+  font-size: 1rem;
+  padding: 2rem;
+  box-shadow: 0 1.5rem 4rem rgba($color-dark, .10);
+  text-align: center;
+  border-radius: 3px;
+  transition: transform .3s;
+  margin-top: 4rem;
+}
+
+.flex__item {
+  font-size: 1rem;
+  float: right;
+  display: flex;
+  color: $color-primary-blue;
+}
+
+.review {
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+
+  &__user {
+    display: flex;
+    align-items: left;
+  }
+
+  &__photo {
+    border-radius: 50%;
+    margin-right: 8rem;
+  }
+}
+
+.side__angle {
+  display: flex;
+  align-items: left;
+  color: $color-primary-purple;
+  font-size: 1rem;
+}
+
+.list__page {
+  list-style: none;
+}
+
+.list__left {
+  display: inline-block;
+  align-items: left;
+}
+
+.list__right {
+  display: inline-block;
+  align-items: right;
+}
+
+.list__image {
+  width: 30%;
+  height: 30%;
+  float: left;
+  align-items: left;
+}
+
+ .list__image--1 {
+    width: 30%;
+    height: 30%;
+    float: right;
+    align-items: right;
+  }
+
+
+
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+  }
+  
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @mixin respond($breakpoint) {
+        @if $breakpoint == tab-port {
+          margin-right: 0;
+          margin-bottom: $gutter-vertical-small;
+        }
+      }
+    }
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+  .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+  }
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+  .col-1-of-5 {
+    width: calc((100% - 4 * #{$gutter-horizontal}) / 5);
+  }
+  .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+  }
+  .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+  }
+}

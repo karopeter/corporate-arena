@@ -1,0 +1,197 @@
+// GRID
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 2rem;
+
+
+$color-primary: #ffffff;
+$color-light-blue: #3F3356;
+$color-light-1: #F7F5F9;
+$color-dark: #000;
+$color-primary-green: #00C48C;
+$color-primary-blue: #505f98;
+$color-light-2: #3F3356;
+
+
+.header__light {
+  margin-top: 3rem;
+  font-size: 2.5rem;
+  text-align: center;
+  color: $color-light-2;
+  font-weight: bold;
+}
+
+.page__indent {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: $color-primary-blue;
+  line-height: 1.5rem;
+  word-spacing: 1px;
+}
+
+
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-weight: 100;
+  font-size: 1rem;
+  text-decoration: none;
+   margin-left: 25rem;
+   margin-top: 1.5rem;
+   border: 1rem;
+   transition: background-color 0.2s, border 0.2s, color 0.2s;
+   transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited ,
+input[type=submit] {
+  background-color: $color-primary-green;
+  color: $color-primary;
+}
+
+.image {
+  width: 80%;
+  height: 80%;
+  position: relative;
+}
+
+
+.section-features {
+  background-color: $color-primary;
+  margin-top: 4rem;
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+      padding: 15rem 0;
+    }
+  }
+}
+
+.heading-primary {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: $color-light-blue;
+  line-height: 3rem;
+  margin-top: 4rem;
+  margin-left: 1rem;
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+       font-size: 3rem;
+    }
+  }
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 1rem;
+  color: $color-light-blue;
+  margin-top: 20em;
+  text-align: left;
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+      font-size: 1rem;
+      text-align: left;
+    }
+  }
+}
+
+
+
+.feature-box {
+  margin-top: 2rem;
+  background-color: $color-light-1;
+  perspective: 40rem;
+  -moz-perspective: 40rem;
+  transition: all .4s ease;
+  position: relative;
+  height: 30rem;
+  backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 2rem rgba($color-dark, .15);
+
+  @mixin respond($breakpoint) {
+    @if $breakpoint == tab-port {
+       padding: 2rem;
+    }
+  }
+}
+
+.long-copy{
+  text-align: left;
+  font-size: 1rem;
+  color: $color-light-blue;
+}
+
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+  }
+
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @mixin respond($breakpoint) {
+        @if $breakpoint == tab-port {
+          margin-right: 0;
+          margin-bottom: $gutter-vertical-small;
+        }
+      }
+    }
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+  .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+  }
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+  .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+  }
+  .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+  }
+}

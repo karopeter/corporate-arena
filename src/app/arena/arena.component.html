@@ -1,0 +1,55 @@
+<div class="container">
+  <h1 class="header__light">
+    Job Vacancies | Traffic Updates & Articles
+  </h1>
+  <p class="page__indent">
+   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore blanditiis possimus error cumque explicabo
+   <br class="hidden-xs">
+   consequuntur, fugit incidunt reprehenderit consequatur neque ratione ipsa totam nostrum
+   <br class="hidden-xs">
+  consequuntur, fugit incidunt reprehenderit consequatur neque ratione ipsa totam nostrum
+  <br class="hidden-xs">
+  </p>
+  <a href="#" class="btn btn-ghost">Get Started</a>
+  <div>
+    <img src="/assets/img/arenas5.svg" alt="" class="image">
+  </div>
+ </div>
+
+
+<section class="section-features" *ngIf="arenas && arenas.length">
+   <div class="row" *ngFor="let arena of arenas">
+     <div class="col-1-of-4">
+       <h1 class="heading-primary">
+         Today's
+         <br class="hidden-xs">
+         Reserach,
+         <br class="hidden-xs">
+         Tommorrow
+         <br class="hiddden-xs">
+         Innovative
+       </h1>
+     </div>
+     <div class="col-1-of-4">
+       <div class="feature-box">
+         <h3 class="heading-secondary">{{arena.arenaName}}</h3>
+         <p class="long-copy">{{arena.description}}</p>
+       </div>
+     </div>
+     <div class="col-1-of-4">
+      <div class="feature-box">
+        <h3 class="heading-secondary">{{arena.arenaName}}</h3>
+        <p class="long-copy">{{arena.description}}</p>
+      </div>
+    </div>
+    <div class="col-1-of-4">
+      <div class="feature-box">
+        <h3 class="heading-secondary">{{arena.arenaName}}</h3>
+        <p class="long-copy">{{arena.description}}</p>
+      </div>
+    </div>
+   </div>
+</section>
+
+<app-brain></app-brain>
+<app-world></app-world>

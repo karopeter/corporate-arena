@@ -1,0 +1,9 @@
+<section class="section-brain" *ngIf="brains && brains.length">
+  <div class="container" *ngFor="let brain of brains">
+     <h1 class="heading-primary">{{brain.brainName}}</h1>
+     <h2 class="heading-secondary">{{brain.description}}</h2>
+  </div>
+  <div class="container" *ngFor="let brain of brains">
+    <img *ngIf="showImage" [src]='brain.urlImage' alt="" class="brain-image">
+  </div>
+</section>
