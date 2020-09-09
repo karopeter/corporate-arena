@@ -5,12 +5,6 @@ $color-light-purple: rgba(199, 23, 199, 0.904);
 .section-brain {
   background-color: $color-primary;
   margin-top: 2rem;
-
-  @mixin respond($breakpoint) {
-    @if $breakpoint == tab-port {
-      padding: 2rem;
-    }
-  }
 }
 
 .heading-primary {
@@ -27,14 +21,6 @@ $color-light-purple: rgba(199, 23, 199, 0.904);
   font-size: 1.5rem;
   color: $color-dark;
   font-weight: 100;
-
-  @mixin respond($breakpoint) {
-    @if $breakpoint == tab-port {
-      font-size: 2rem;
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-  }
 }
 
 .heading-secondary:after {
@@ -47,19 +33,3 @@ $color-light-purple: rgba(199, 23, 199, 0.904);
   margin-top: 1rem;
 }
 
-.brain-image {
-  @mixin respond($breakpoint) {
-    @if $breakpoint == tab-port {
-      width: 40%;
-      height: 40%;
-      padding: 2rem;
-    }
-  }
-  @mixin respond($breakpoint) {
-    @if $breakpoint == phone {
-      width: 20%;
-      height: 20%;
-      padding: 1rem;
-    }
-  }
-}

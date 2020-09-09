@@ -1,20 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from './blog.service';
-import { IBlog } from './blog';
+import { Subscription } from 'rxjs';
+import { Blog } from './blog';
+import { BlogsService } from './blogs.service';
+
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss'],
-  providers: [BlogService]
+  styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-  blogs: IBlog[];
+  blogs: Blog[] = [];
+  private blogsSub: Subscription;
 
-  constructor(private blogService: BlogService) { }
+  constructor(public blogsService: BlogsService) {}
 
   ngOnInit(): void {
-    this.blogs = this.blogService.getBlogs();
+    this.blogsService.getBlogs();
+    this.blogsSub = this.blogsService.getBlogUpdateListener().subscribe((blogs: Blog[]) => {
+      this.blogs = blogs;
+    });
   }
 
+  onUpdate(blogId: string) {
+    this.blogsService.updateBlog(blogId);
+  }
+
+  onDelete(blogId: string) {
+    this.blogsService.deleteBlog(blogId);
+  }
 }
+

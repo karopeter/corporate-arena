@@ -20,23 +20,8 @@ $font-primary: 'Roboto', sans-serif;
    padding: 2rem 0rem;
    margin-top: 2rem;
 
-   @mixin respond($breakpoint) {
-     @if $breakpoint == tab-port {
-        padding: 8rem 0;
-        width: 70%;
-     }
-   }
-
    &__logo-box {
      text-align: center;
-     
-     @mixin respond($breakpoint) {
-       @if $breakpoint == tab-port {
-         margin-bottom: 6rem;
-         width: 60%;
-         display: inline-block;
-       }
-     }
    }
 
    &__logo {
@@ -55,7 +40,7 @@ $font-primary: 'Roboto', sans-serif;
      margin-left: 2rem;
      font-family: $font-primary;
    }
-   
+
 
    &__heading {
      font-size: 1.5rem;
@@ -64,12 +49,6 @@ $font-primary: 'Roboto', sans-serif;
      margin-top: 3rem;
      margin-bottom: 3rem;
      color: $color-dark;
-
-     @mixin respond($breakpoint) {
-       text-align: center;
-       float: right;
-       width: 60%;
-     }
    }
 
    &__list {
@@ -141,14 +120,8 @@ $font-primary: 'Roboto', sans-serif;
       }
     }
 
-    @mixin respond($breakpoint) {
-      @if $breakpoint == tab-port {
-        max-width: 50rem;
-        padding: 0 3rem;
-      }
-    }
   }
-  
+
 
   &::after {
     content: "";

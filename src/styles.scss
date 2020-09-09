@@ -1,7 +1,6 @@
 $font-primary: "Montserrat", sans-serif;
 $color-light-grey: #E5E7FA;
 
-$bp-large: 68.75em;   // 1100px
 
 *,
 *::before,
@@ -12,35 +11,28 @@ $bp-large: 68.75em;   // 1100px
 }
 
 html {
-  box-sizing: border-box;
   font-size: 1rem;
 
-  @mixin respond($breakpoint) {
-    @if $breakpoint == tab-land {
-      @media (max-width: 75rem) { font-size: 56.25% }; 
-    }
-    @if $breakpoint == tab-port {
-      @media (max-width: 56.26rem) { font-size: 50% }; 
-    }
-    @if $breakpoint == big-desktop {
-      @media (max-width: 112.5rem) { font-size: 75% };
-    }
+  @media (min-width: 576px) {
+    // Small devices (landscape phones)
   }
 
-  @media only screen and (max-width: $bp-large) {
-     font-size: 50%;
+  @media (min-width: 768px) {
+    // Medium devices (tablets)
+  }
+
+  @media (min-width: 992px) {
+    // Large devices (desktops)
+  }
+
+  @media (min-width: 1200px) {
+    // Extra large devices (large desktops)
   }
 }
 
 body {
   box-sizing: border-box;
   padding: 3rem;
-  
-  @mixin respond($breakpoint) {
-    @if $breakpoint == tab-port {
-      padding: 0;
-    }
-  }
 }
 
 body {
@@ -50,22 +42,5 @@ body {
   line-height: 1.6;
 }
 
-
-// MEDIA QUERY MANAGER 
-/*
-0 - 600px:    phone
-600 - 900px:  Tablet protrait
-900 - 1200px: Tablet landscape
-[1200 - 1800] is where our normal styles apply
-1800px + :  Big desktop
-
-$breakpoint argument choices
-- phone 
-- tab-port
-- tab-land
-- big-desktop
-
-ORDER: Base + typography > general layout + grid > page layout > components
-*/
 
 

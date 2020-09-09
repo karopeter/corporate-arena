@@ -12,22 +12,19 @@ ul {
   list-style: none;
   display: flex;
 
-  @mixin respond($breakpoint) {
-    @if $breakpoint == tab-port {
-      top: 4rem;
-      right: 4rem;
-      display: inline-block;
+  @media screen and (min-width: 900px) {
+    ul {
+      padding: 1rem 2rem;
+    }
+    @supports (display: flex) {
+      @media screen and (min-width: 900px) {
+        ul {
+          display: flex;
+        }
+      }
     }
   }
-
-  @mixin respond($breakpoint) {
-    @if $breakpoint == tab-port {
-      top: 3rem;
-      right: 3rem;
-      display: inline-block;
-      padding: 2rem;
-    }
-  }
+  
 
   li {
     align-items: center;
@@ -36,18 +33,6 @@ ul {
     font-size: 1rem;
     justify-content: space-between;
 
-    @mixin respond($breakpoint) {
-      @if $breakpoint == tab-port {
-         top: 4.5rem;
-         right: 4.5rem;
-         align-items: center;
-         width: 10rem;
-         background-color: $color-primary;
-         font-size: 1rem;
-         justify-content: space-between;
-        
-      }
-    }
   }
 
   a {

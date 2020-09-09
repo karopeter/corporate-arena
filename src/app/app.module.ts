@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { BlogComponent } from './blog/blog.component';
   imports: [
   BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/arenas', pathMatch: 'full' },
       { path: 'arenas', component: ArenaComponent },

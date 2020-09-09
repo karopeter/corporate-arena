@@ -14,12 +14,34 @@ $color-primary-blue: #505f98;
 $color-light-2: #3F3356;
 
 
+
 .header__light {
   margin-top: 3rem;
   font-size: 2.5rem;
   text-align: center;
   color: $color-light-2;
   font-weight: bold;
+
+
+  @media (max-width: 575.98px) {  // Extra small device (portrait phones, small phones)
+    font-size: 1rem;
+  }
+
+  @media (min-width: 576px) and (max-width: 767.98px) {  // Small devices (landscape phones)
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 991.98px) {  // medium devices (tablets)
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199.98px) {  // Large devices (desktops)
+    font-size: 3rem;
+  }
+
+  @media (min-width: 1200px) {  // Extra large devices (large desktops)
+    font-size: 2.5rem;
+  }
 }
 
 .page__indent {
@@ -63,12 +85,6 @@ input[type=submit] {
 .section-features {
   background-color: $color-primary;
   margin-top: 4rem;
-
-  @mixin respond($breakpoint) {
-    @if $breakpoint == tab-port {
-      padding: 15rem 0;
-    }
-  }
 }
 
 .heading-primary {
@@ -79,32 +95,14 @@ input[type=submit] {
   line-height: 3rem;
   margin-top: 4rem;
   margin-left: 1rem;
-
-  @mixin respond($breakpoint) {
-    @if $breakpoint == tab-port {
-       font-size: 3rem;
-    }
-  }
-
-  @mixin respond($breakpoint) {
-    @if $breakpoint == phone {
-      font-size: 2.5rem;
-    }
-  }
 }
+
 
 .heading-secondary {
   font-size: 1rem;
   color: $color-light-blue;
   margin-top: 20em;
   text-align: left;
-
-  @mixin respond($breakpoint) {
-    @if $breakpoint == tab-port {
-      font-size: 1rem;
-      text-align: left;
-    }
-  }
 }
 
 
@@ -121,12 +119,6 @@ input[type=submit] {
   border-radius: 3px;
   overflow: hidden;
   box-shadow: 0 1.5rem 2rem rgba($color-dark, .15);
-
-  @mixin respond($breakpoint) {
-    @if $breakpoint == tab-port {
-       padding: 2rem;
-    }
-  }
 }
 
 .long-copy{

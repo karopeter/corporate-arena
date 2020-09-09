@@ -13,20 +13,6 @@ $color-dark: #000;
    margin-left: 10rem;
    width: 70%;
    height: 70%;
-
-   @mixin respond($breakpoint) {
-     @if $breakpoint == tab-port {
-        padding: 10rem 0;
-        width: 70%;
-        height: 70%;
-     }
-   }
-
-   @mixin respond($breakpoint) {
-     @if $breakpoint == tab-land {
-        width: 65%;
-     }
-   }
 }
 
 .heading-primary {
