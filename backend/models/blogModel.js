@@ -20,7 +20,22 @@ const blogSchema = new mongoose.Schema({
    imageUrl: {
      type: String,
      required: true
+   },
+   dateCreated: {
+     type: Date,
+     default: Date.now(),
+     select: false
+   },
+   dateModified: {
+     type: Date,
+     default: Date.now(),
    }
+});
+
+// Query Middleware
+blogSchema.pre(/^find/, function(next) {
+   this.dateCreated = Date.now();
+   next();
 });
 
 const Blog = mongoose.model('Blog', blogSchema);
