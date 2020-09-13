@@ -49,17 +49,7 @@ export class BlogsService {
      });
    }
 
-   updateBlog(id: string, title: string, authorID: number, isApproved: boolean, content: string, imageUrl: string) {
-      const blog: Blog = { id: id, title: title, authorID: authorID, isApproved: isApproved, content: content, imageUrl: imageUrl };
-      this.http.patch('http://localhost:5000/api/v1/Article' + id, blog).subscribe(response => {
-         const updatedBlogs = [...this.blogs];
-         const oldBlogIndex = updatedBlogs.findIndex(b => b.id === blog.id);
-         updatedBlogs[oldBlogIndex] = blog;
-         this.blogs = updatedBlogs;
-         this.blogsUpdated.next([...this.blogs]);
-         this.router.navigate(['/']);
-      });
-   }
+  
 
    deleteBlog(blogId: string) {
      this.http.delete('http://localhost:5000/api/v1/Article' + blogId).subscribe(() => {

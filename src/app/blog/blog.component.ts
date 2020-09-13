@@ -36,11 +36,11 @@ export class BlogComponent implements OnInit {
       }
     });
     this.blogsService.getBlogs();
-    this.blogsService.updateBlog();
     this.blogsSub = this.blogsService.getBlogUpdateListener().subscribe((blogs: Blog[]) => {
       this.blogs = blogs;
     });
   }
+
 
   onDelete(blogId: string) {
     this.blogsService.deleteBlog(blogId);
