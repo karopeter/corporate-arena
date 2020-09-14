@@ -1,62 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable,  Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Blog } from './blog';
 import { Router } from '@angular/router';
 
+const baseUrl = 'http://localhost:5000/api/v1/Article';
+
 @Injectable({ providedIn: 'root'})
 export class BlogsService {
-  private blogs: Blog[] = [];
-  private blogsUpdated = new Subject<Blog[]>();
-
    constructor(private http: HttpClient, private router: Router) {}
 
-   getBlogs() {
-       this.http.get<{ message: string; blogs: any }>('http://localhost:5000/api/v1/Article').pipe(map((blogData) => {
-         return blogData.blogs.map(blog => {
-           return {
-             title: blog.title,
-             authorID: blog.authorID,
-             isApproved: blog.isApproved,
-             content: blog.content,
-             imageUrl: blog.imageUrl,
-             id: blog._id
-           };
-         });
-       })).subscribe(transformedBlogs => {
-         this.blogs = transformedBlogs;
-         this.blogsUpdated.next([...this.blogs]);
-       });
+   getAllBlogs(): Observable<any> {
+     return this.http.get(baseUrl);
    }
 
-   getBlogUpdateListener() {
-     return this.blogsUpdated.asObservable();
+   getBlog(id): Observable<any> {
+    return this.http.get(`${baseUrl}/${id}`);
    }
 
-   getBlog(id: string) {
-     return this.http.get<{ _id: string; title: string; authorID: number; isApproved: boolean; content: string; imageUrl: string}>('http://localhost:5000/api/v1/Article' + id);
+   createBlog(data): Observable<any> {
+     return this.http.post(baseUrl, data);
    }
 
-
-   addBlog(title: string, authorID: number, isApproved: boolean, content: string, imageUrl: string) {
-     const blog: Blog = { id: null, title: title, authorID: authorID, isApproved: isApproved, content: content, imageUrl };
-     this.http.post<{ message: string }>('http://localhost:5000/api/v1/Article', blog).subscribe(responseData => {
-        console.log(responseData.message);
-        this.blogs.push(blog);
-        this.blogsUpdated.next([...this.blogs]);
-        this.router.navigate(['/']);
-     });
+   updateBlog(id, data): Observable<any> {
+    return this.http.patch(`${baseUrl}/${id}`, data);
    }
 
-  
-
-   deleteBlog(blogId: string) {
-     this.http.delete('http://localhost:5000/api/v1/Article' + blogId).subscribe(() => {
-       const updatedBlogs = this.blogs.filter(blog => blog.id !== blogId);
-       this.blogs = updatedBlogs;
-       this.blogsUpdated.next([...this.blogs]);
-     });
+   deleteBlog(id): Observable<any> {
+     return this.http.delete(`${baseUrl}/${id}`);
    }
 }
 
