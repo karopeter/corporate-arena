@@ -11,7 +11,8 @@ import { BlogComponent } from './blog/blog.component';
 export const APP_ROUTES: Routes = [
   { path: '', redirectTo: '/arenas', pathMatch: 'full' },
   { path: 'arenas', component: ArenaComponent },
-  { path: 'world', component: WorldComponent },
+  { path: 'worlds', component: WorldComponent },
+  { path: 'arenas', component: ArenaComponent },
   { path: 'teasers', component: TeasersComponent },
   { path: 'traffics', component: TrafficComponent },
   { path: 'contacts', component: ContactComponent },

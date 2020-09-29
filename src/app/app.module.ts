@@ -46,8 +46,8 @@ import { BlogComponent } from './blog/blog.component';
       { path: 'contacts', component: ContactComponent },
       { path: 'vacancies', component: VacanciesComponent },
       { path: 'blog', component: BlogComponent }
-    ])
-  ],
+  ])
+],
   providers: [],
   bootstrap: [AppComponent]
 })

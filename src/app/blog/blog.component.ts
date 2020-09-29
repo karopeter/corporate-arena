@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogsService } from './blogs.service';
-
-
+import { BlogService } from '../services/blog.service';
+import { Blog } from '../models/blog';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -9,32 +9,43 @@ import { BlogsService } from './blogs.service';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-  blog = {
-    title: String,
-    authorID: Number,
-    isApproved: Boolean,
-    content: String,
-    imageUrl: String
-  };
-
-  constructor(private blogsService: BlogsService) {}
-
-  ngOnInit(): void {}
+  blog: Blog;
+  title = '';
+  body = '';
+  articleId: number;
 
 
-  saveBlog(): void {
-    const data = {
-      title: this.blog.title,
-      authorID: this.blog.authorID,
-      isApproved: this.blog.isApproved,
-      content: this.blog.content,
-      imageUrl: this.blog.imageUrl
-    };
-    this.blogsService.createBlog(data).subscribe(response => {
-      console.log(response);
+  constructor(private blogService: BlogService, private route: ActivatedRoute, private router: Router) {}
+
+  ngOnInit(): void {
+    this.getArticle(this.route.snapshot.paramMap.get('ID'));
+  }
+
+  getArticle(ID): void {
+    this.blogService.get(ID).subscribe(blog => {
+      this.blog = blog;
+      this.articleId = blog.ID;
     });
   }
+
+  submitComment(): void {
+    if (this.body.length === 0 || this.title.length === 0) {
+      return;
+    }
+  }
+
+   createArticle(): void {
+     this.blogService.create(this.articleId, this.blog).subscribe(newComment => {
+       this.blog = newComment;
+       this.body = '';
+       this.title = '';
+     });
+   }
 }
+
+
+
+
 
 
 
