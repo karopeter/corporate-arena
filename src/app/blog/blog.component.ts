@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../services/blog.service';
-import { Blog } from '../models/blog';
-import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-blog',
@@ -9,38 +8,46 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-  blog: Blog;
-  title = '';
-  body = '';
-  articleId: number;
+  article = {
+    title: '',
+    authorID: 0,
+    isApproved: false,
+    content: '',
+    imageUrl: ''
+  };
+  submitted = false;
 
 
-  constructor(private blogService: BlogService, private route: ActivatedRoute, private router: Router) {}
+  constructor(private blogService: BlogService) {}
 
   ngOnInit(): void {
-    this.getArticle(this.route.snapshot.paramMap.get('ID'));
+    this.retrieveBlogs();
   }
 
-  getArticle(ID): void {
-    this.blogService.get(ID).subscribe(blog => {
-      this.blog = blog;
-      this.articleId = blog.ID;
+  retrieveBlogs(): void {
+    this.blogService.getAll().subscribe(data => {
+      this.article = data;
+      console.log(data);
+    }, error => {
+      console.log(error);
     });
   }
 
-  submitComment(): void {
-    if (this.body.length === 0 || this.title.length === 0) {
-      return;
-    }
+  saveBlog(): void {
+    const data = {
+      title: this.article.title,
+      authorID: this.article.authorID,
+      isApproved: this.article.isApproved,
+      content: this.article.content,
+      imageUrl: this.article.imageUrl
+    };
+    this.blogService.create(data).subscribe(response => {
+      console.log(response);
+      this.submitted = false;
+    }, error => {
+      console.log(error);
+    });
   }
-
-   createArticle(): void {
-     this.blogService.create(this.articleId, this.blog).subscribe(newComment => {
-       this.blog = newComment;
-       this.body = '';
-       this.title = '';
-     });
-   }
 }
 
 
