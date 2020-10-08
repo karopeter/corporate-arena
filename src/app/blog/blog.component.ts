@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Blog } from '../models/blog';
 import { BlogService } from '../services/blog.service';
 
 
@@ -8,46 +9,23 @@ import { BlogService } from '../services/blog.service';
   styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
-  article = {
-    title: '',
-    authorID: 0,
-    isApproved: false,
-    content: '',
-    imageUrl: ''
-  };
-  submitted = false;
-
+  blogs: Blog[];
+  featuredBlog: Blog;
 
   constructor(private blogService: BlogService) {}
 
   ngOnInit(): void {
-    this.retrieveBlogs();
+     this.blogService.getAll().subscribe((blogs) => {
+       this.featuredBlog = blogs[0];
+       console.log(this.featuredBlog);
+       this.blogs = blogs.slice(1);
+     });
   }
 
-  retrieveBlogs(): void {
-    this.blogService.getAll().subscribe(data => {
-      this.article = data;
-      console.log(data);
-    }, error => {
-      console.log(error);
-    });
+  getUrl(slug: string): string {
+    return `/blog/${slug}`;
   }
 
-  saveBlog(): void {
-    const data = {
-      title: this.article.title,
-      authorID: this.article.authorID,
-      isApproved: this.article.isApproved,
-      content: this.article.content,
-      imageUrl: this.article.imageUrl
-    };
-    this.blogService.create(data).subscribe(response => {
-      console.log(response);
-      this.submitted = false;
-    }, error => {
-      console.log(error);
-    });
-  }
 }
 
 

@@ -1,53 +1,47 @@
 <div class="container">
   <h1 class="heading__primary">Blog</h1>
 </div>
+
+<a [routerLink]="['/blog-create']" class="title">
+  <h2 class="text-left link" style="text-align: center; margin-left: 55rem; margin-top: 2rem; font-size: 15px; font-weight: 300;">Create</h2>
+</a>
+
+
 <section class="section-page">
-  <div class="container-page">
+  <div class="container-page" *ngIf="featuredBlog">
    <img src="/assets/img/arenas6.jpg" alt="" class="page-image">
    <div class="page-text">
      <h1 class="small-caps">
-      Friday Night Traffic Jam at Third
-       <br class="hidden-x">
-       Mainland Bridge: Cause Unknown
+       {{ featuredBlog.title }}
      </h1>
-     <span style="color: #000;">posted on Janurary 8th 2020</span>
+     <span style="color: #000;">posted on {{ featuredBlog.dateCreated | date: "fullDate" }}</span>
      <p class="long-plan">
-      Sed officiis sit deleniti rerum sunt perspiciatis
+      {{ featuredBlog.content }}
      </p>
-     <a href="#"><p class="long-paln" style="color: #6979FB; margin-left: 1rem;">see more <span><img src="/assets/img/arenas14.svg" alt="" class="span__image--2"></span></p></a>
+     <a [routerLink]="['/blog-article']"><p class="long-paln" style="color: #6979FB; margin-left: 1rem;">see more <span><img src="/assets/img/arenas14.svg" alt="" class="span__image--2"></span></p></a>
    </div>
   </div>
 </section>
 
-<section class="section-sector">
-   <div class="row">
+
+<section class="section-sector" *ngIf="blogs">
+   <div class="row" *ngFor="let blog of blogs">
       <div class="col-1-of-3">
         <div class="sector__box--1">
          <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
          <h2 class="heading__secondary">
-            Lets's talk about
-            <br class="hidden-xs">
-            sharingan and the
-            <br class="hidden-xs">
-            Uchicha clan
+           {{ blog.title }}
          </h2>
-         <span style="margin-left: 1rem; color: rgb(39, 38, 38);">January 25, 2020</span>
+         <span style="margin-left: 1rem; color: rgb(39, 38, 38);">{{ blog.dateCreated | date: "longDate"}}</span>
          <p class="long__sector">
-          Lorem ipsum dolor sit amet consectetur
-          <br class="hidden-xs">
-          adipisicing elit. Reprehenderit inventore
-          <br class="hidden-xs">
-          dignissimos exercitationem cum. Labore libero
-          <br class="hidden-xs">
-          laborum aspernatur nam! Pariatur, praesentium
+          {{ blog.content }}
          </p>
-         <p class="long__sector">eum quibusdam magnam aliquid asperiores alias adipisci ad tempore? Obcaecati.</p>
          <div class="seenon">
           <div class="col-1-of-2">
-            <a href="#" ><span style="color: rgb(39, 38, 38);"><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">2 comments</span></a>
+            <a href="#" ><span style="color: rgb(39, 38, 38);"><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">{{blog.comments?.length > 0 ? blog.comments.length : "No"}}</span></a>
            </div>
            <div class="col-1-of-2">
-            <a href="#" style="color: rgb(39, 38, 38);">Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
+            <a routerLink="{{ getUrl(blog.id)}}" style="color: rgb(39, 38, 38);">Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
            </div>
          </div>
         </div>
@@ -56,29 +50,18 @@
         <div class="sector__box--1">
          <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
          <h2 class="heading__secondary">
-            Lets's talk about
-            <br class="hidden-xs">
-            sharingan and the
-            <br class="hidden-xs">
-            Uchicha clan
+           {{ blog.title }}
          </h2>
-         <span style="margin-left: 1rem; color: rgb(39, 38, 38);">January 25, 2020</span>
+         <span style="margin-left: 1rem; color: rgb(39, 38, 38);">{{ blog.dateCreated | date: "longDate"}}</span>
          <p class="long__sector">
-          Lorem ipsum dolor sit amet consectetur
-          <br class="hidden-xs">
-          adipisicing elit. Reprehenderit inventore
-          <br class="hidden-xs">
-          dignissimos exercitationem cum. Labore libero
-          <br class="hidden-xs">
-          laborum aspernatur nam! Pariatur, praesentium
+          {{ blog.content }}
          </p>
-         <p class="long__sector">eum quibusdam magnam aliquid asperiores alias adipisci ad tempore? Obcaecati.</p>
          <div class="seenon">
           <div class="col-1-of-2">
-            <a href="#" style="color: rgb(39, 38, 38);" ><span><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">2 comments</span></a>
+            <a href="#" ><span style="color: rgb(39, 38, 38);"><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">{{blog.comments?.length > 0 ? blog.comments.length : "No"}}</span></a>
            </div>
            <div class="col-1-of-2">
-            <a href="#" style="color: rgb(39, 38, 38);" >Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
+            <a routerLink="{{ getUrl(blog.id)}}" style="color: rgb(39, 38, 38);">Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
            </div>
          </div>
         </div>
@@ -87,222 +70,21 @@
         <div class="sector__box--1">
          <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
          <h2 class="heading__secondary">
-            Lets's talk about
-            <br class="hidden-xs">
-            sharingan and the
-            <br class="hidden-xs">
-            Uchicha clan
+           {{ blog.title }}
          </h2>
-         <span style="margin-left: 1rem; color: rgb(39, 38, 38);">January 25, 2020</span>
+         <span style="margin-left: 1rem; color: rgb(39, 38, 38);">{{ blog.dateCreated | date: "longDate"}}</span>
          <p class="long__sector">
-          Lorem ipsum dolor sit amet consectetur
-          <br class="hidden-xs">
-          adipisicing elit. Reprehenderit inventore
-          <br class="hidden-xs">
-          dignissimos exercitationem cum. Labore libero
-          <br class="hidden-xs">
-          laborum aspernatur nam! Pariatur, praesentium
+          {{ blog.content }}
          </p>
-         <p class="long__sector">eum quibusdam magnam aliquid asperiores alias adipisci ad tempore? Obcaecati.</p>
          <div class="seenon">
           <div class="col-1-of-2">
-            <a href="#" style="color: rgb(39, 38, 38);" ><span><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">2 comments</span></a>
+            <a href="#" ><span style="color: rgb(39, 38, 38);"><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">{{blog.comments?.length > 0 ? blog.comments.length : "No"}}</span></a>
            </div>
            <div class="col-1-of-2">
-            <a href="#" style="color: rgb(39, 38, 38);" >Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
+            <a routerLink="{{ getUrl(blog.id)}}" style="color: rgb(39, 38, 38);">Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
            </div>
          </div>
         </div>
       </div>
-   </div>
-   <div class="row">
-    <div class="col-1-of-3">
-      <div class="sector__box--1">
-       <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
-       <h2 class="heading__secondary">
-          Lets's talk about
-          <br class="hidden-xs">
-          sharingan and the
-          <br class="hidden-xs">
-          Uchicha clan
-       </h2>
-       <span style="margin-left: 1rem; color: rgb(39, 38, 38);">January 25, 2020</span>
-       <p class="long__sector">
-        Lorem ipsum dolor sit amet consectetur
-        <br class="hidden-xs">
-        adipisicing elit. Reprehenderit inventore
-        <br class="hidden-xs">
-        dignissimos exercitationem cum. Labore libero
-        <br class="hidden-xs">
-        laborum aspernatur nam! Pariatur, praesentium
-       </p>
-       <p class="long__sector">eum quibusdam magnam aliquid asperiores alias adipisci ad tempore? Obcaecati.</p>
-       <div class="seenon">
-        <div class="col-1-of-2">
-          <a href="#"><span style="color: rgb(39, 38, 38);"><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">2 comments</span></a>
-         </div>
-         <div class="col-1-of-2">
-          <a href="#" style="color: rgb(39, 38, 38);" >Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
-         </div>
-       </div>
       </div>
-    </div>
-    <div class="col-1-of-3">
-      <div class="sector__box--1">
-       <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
-       <h2 class="heading__secondary">
-          Lets's talk about
-          <br class="hidden-xs">
-          sharingan and the
-          <br class="hidden-xs">
-          Uchicha clan
-       </h2>
-       <span style="margin-left: 1rem; color: rgb(39, 38, 38);">January 25, 2020</span>
-       <p class="long__sector">
-        Lorem ipsum dolor sit amet consectetur
-        <br class="hidden-xs">
-        adipisicing elit. Reprehenderit inventore
-        <br class="hidden-xs">
-        dignissimos exercitationem cum. Labore libero
-        <br class="hidden-xs">
-        laborum aspernatur nam! Pariatur, praesentium
-       </p>
-       <p class="long__sector">eum quibusdam magnam aliquid asperiores alias adipisci ad tempore? Obcaecati.</p>
-       <div class="seenon">
-        <div class="col-1-of-2">
-          <a href="#" style="color: rgb(39, 38, 38);" ><span><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">2 comments</span></a>
-         </div>
-         <div class="col-1-of-2">
-          <a href="#" style="color: rgb(39, 38, 38);" >Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
-         </div>
-       </div>
-      </div>
-    </div>
-    <div class="col-1-of-3">
-      <div class="sector__box--1">
-       <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
-       <h2 class="heading__secondary">
-          Lets's talk about
-          <br class="hidden-xs">
-          sharingan and the
-          <br class="hidden-xs">
-          Uchicha clan
-       </h2>
-       <span style="margin-left: 1rem; color: rgb(39, 38, 38);">January 25, 2020</span>
-       <p class="long__sector">
-        Lorem ipsum dolor sit amet consectetur
-        <br class="hidden-xs">
-        adipisicing elit. Reprehenderit inventore
-        <br class="hidden-xs">
-        dignissimos exercitationem cum. Labore libero
-        <br class="hidden-xs">
-        laborum aspernatur nam! Pariatur, praesentium
-       </p>
-       <p class="long__sector">eum quibusdam magnam aliquid asperiores alias adipisci ad tempore? Obcaecati.</p>
-       <div class="seenon">
-        <div class="col-1-of-2">
-          <a href="#" style="color: rgb(39, 38, 38);" ><span><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">2 comments</span></a>
-         </div>
-         <div class="col-1-of-2">
-          <a href="#" style="color: rgb(39, 38, 38);" >Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
-         </div>
-       </div>
-      </div>
-    </div>
- </div>
- <div class="row">
-  <div class="col-1-of-3">
-    <div class="sector__box--1">
-     <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
-     <h2 class="heading__secondary">
-        Lets's talk about
-        <br class="hidden-xs">
-        sharingan and the
-        <br class="hidden-xs">
-        Uchicha clan
-     </h2>
-     <span style="margin-left: 1rem; color: rgb(39, 38, 38);">January 25, 2020</span>
-     <p class="long__sector">
-      Lorem ipsum dolor sit amet consectetur
-      <br class="hidden-xs">
-      adipisicing elit. Reprehenderit inventore
-      <br class="hidden-xs">
-      dignissimos exercitationem cum. Labore libero
-      <br class="hidden-xs">
-      laborum aspernatur nam! Pariatur, praesentium
-     </p>
-     <p class="long__sector">eum quibusdam magnam aliquid asperiores alias adipisci ad tempore? Obcaecati.</p>
-     <div class="seenon">
-      <div class="col-1-of-2">
-        <a href="#"><span style="color: rgb(39, 38, 38);"><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">2 comments</span></a>
-       </div>
-       <div class="col-1-of-2">
-        <a href="#" style="color: rgb(39, 38, 38);">Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
-       </div>
-     </div>
-    </div>
-  </div>
-  <div class="col-1-of-3">
-    <div class="sector__box--1">
-     <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
-     <h2 class="heading__secondary">
-        Lets's talk about
-        <br class="hidden-xs">
-        sharingan and the
-        <br class="hidden-xs">
-        Uchicha clan
-     </h2>
-     <span style="margin-left: 1rem; color: rgb(39, 38, 38);">January 25, 2020</span>
-     <p class="long__sector">
-      Lorem ipsum dolor sit amet consectetur
-      <br class="hidden-xs">
-      adipisicing elit. Reprehenderit inventore
-      <br class="hidden-xs">
-      dignissimos exercitationem cum. Labore libero
-      <br class="hidden-xs">
-      laborum aspernatur nam! Pariatur, praesentium
-     </p>
-     <p class="long__sector">eum quibusdam magnam aliquid asperiores alias adipisci ad tempore? Obcaecati.</p>
-     <div class="seenon">
-      <div class="col-1-of-2">
-        <a href="#" style="color: rgb(39, 38, 38);" ><span><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">2 comments</span></a>
-       </div>
-       <div class="col-1-of-2">
-        <a href="#" style="color: rgb(39, 38, 38);" >Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
-       </div>
-     </div>
-    </div>
-  </div>
-  <div class="col-1-of-3">
-    <div class="sector__box--1">
-     <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
-     <h2 class="heading__secondary">
-        Lets's talk about
-        <br class="hidden-xs">
-        sharingan and the
-        <br class="hidden-xs">
-        Uchicha clan
-     </h2>
-     <span style="margin-left: 1rem; color: rgb(39, 38, 38);">January 25, 2020</span>
-     <p class="long__sector">
-      Lorem ipsum dolor sit amet consectetur
-      <br class="hidden-xs">
-      adipisicing elit. Reprehenderit inventore
-      <br class="hidden-xs">
-      dignissimos exercitationem cum. Labore libero
-      <br class="hidden-xs">
-      laborum aspernatur nam! Pariatur, praesentium
-     </p>
-     <p class="long__sector">eum quibusdam magnam aliquid asperiores alias adipisci ad tempore? Obcaecati.</p>
-     <div class="seenon">
-      <div class="col-1-of-2">
-        <a href="#" style="color: rgb(39, 38, 38);" ><span><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">2 comments</span></a>
-       </div>
-       <div class="col-1-of-2">
-        <a href="#" style="color: rgb(39, 38, 38);">Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
-       </div>
-     </div>
-    </div>
-  </div>
-</div>
 </section>

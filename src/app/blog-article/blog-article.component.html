@@ -1,0 +1,11 @@
+<div class="container my-5 mx-auto">
+  <h2 class="font-weight-bold text-center mb-5">Blog</h2>
+  <div class="d-flex blog">
+     <img src="/assets/img/arenas17.jpg" alt="" class="img-fluid mr-3"/>
+     <div class="align-self-center" *ngFor="let blog of blog">
+       <h2 class="font-weight-bold">
+         {{ blog.title }}
+       </h2>
+     </div>
+  </div>
+</div>

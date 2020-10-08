@@ -1,0 +1,18 @@
+<div class="container my-5 mx-auto">
+   <h2 style="color: #505f98; text-align: center; font-size: 20px; font-weight: bold; margin-bottom: 2rem;">Create blog</h2>
+
+   <div  class="px-5 answer-box row d-flex">
+    <img src="/assets/img/box.svg" alt="" class="img-fluid d-none d-md-block mr-3">
+    <form (ngSubmit)="submitArticle()">
+      <div class="form-group">
+        <input type="text" class="form-control"  id="blog title" placeholder="title"  name="name" style="margin-left: 10rem;"/>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" id="blog content" row="3" placeholder="content"  style="margin-left: 10rem;"></textarea>
+      </div>
+      <button type="button"  class="btn btn-primary btn-large" style="margin-left: 10rem;">Submit</button>
+      </form>
+   </div>
+</div>
+
+

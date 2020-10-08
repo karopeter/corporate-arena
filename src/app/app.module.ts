@@ -17,6 +17,8 @@ import { TrafficComponent } from './traffic/traffic.component';
 import { ContactComponent } from './contact/contact.component';
 import { VacanciesComponent } from './vacancies/vacancies.component';
 import { BlogComponent } from './blog/blog.component';
+import { BlogCreateComponent } from './blog-create/blog-create.component';
+import { BlogArticleComponent } from './blog-article/blog-article.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { BlogComponent } from './blog/blog.component';
     TrafficComponent,
     ContactComponent,
     VacanciesComponent,
-    BlogComponent
+    BlogComponent,
+    BlogCreateComponent,
+    BlogArticleComponent
   ],
   imports: [
   BrowserModule,
@@ -45,7 +49,9 @@ import { BlogComponent } from './blog/blog.component';
       { path: 'traffics', component: TrafficComponent },
       { path: 'contacts', component: ContactComponent },
       { path: 'vacancies', component: VacanciesComponent },
-      { path: 'blog', component: BlogComponent }
+      { path: 'blog', component: BlogComponent },
+      { path: 'blog-create', component: BlogCreateComponent },
+      { path: 'blog-article', component: BlogArticleComponent }
   ])
 ],
   providers: [],

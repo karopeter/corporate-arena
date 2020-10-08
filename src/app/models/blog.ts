@@ -1,9 +1,13 @@
+import { Comment } from './comment';
+
 export interface Blog {
   id: number;
   title: string;
-  authorID: number;
-  isApproved: boolean;
+  slug: string;
+  content: string;
+  dateCreated: Date;
   publishedAt: Date;
-  createdAt: Date;
   comments: Comment[];
 }
+
+export default Blog;
