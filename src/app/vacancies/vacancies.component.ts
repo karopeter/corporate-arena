@@ -23,5 +23,9 @@ export class VacanciesComponent implements OnInit {
 
   ngOnInit(): void {
     this.vacancies = this.vacanciesService.getVacancies();
+    this.vacancyService.getAll().subscribe((vacancys) => {
+      this.vacancys = vacancys;
+      console.log(this.vacancys);
+    });
   }
 }

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BrainTeaserRequest } from '../models/brainTeaserRequest';
 import { BrainTeaser } from '../models/brainTeaser';
 import { Comment } from '../models/comment';
 import { CommentRequest } from '../models/commentRequest';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BrainTeaserAnswer } from '../models/brainTeaserAnswer';
 import { Observable } from 'rxjs';
 
 const baseUrl = 'http://inspirecodeclub-001-site1.ftempurl.com';
@@ -17,12 +19,28 @@ export class BrainTeaserService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<BrainTeaser[]>  {
-     return this.http.get<BrainTeaser[]>(`${baseUrl}/api/BrainTeaser/GetAllBrainTeasers`);
+  getAll(): Observable<BrainTeaser[]> {
+    return this.http.get<BrainTeaser[]>(`${baseUrl}/api/BrainTeaser/GetAllBrainTeasers`);
   }
 
-  postComment(id: number, data: CommentRequest): Observable<Comment> {
-    return this.http.post<Comment>(`${baseUrl}/api/BrainTeaser/CreateBrainTeaser/${id}/comment`, data, this.httpOptions);
+  get(slug: string): Observable<BrainTeaser> {
+     return this.http.get<BrainTeaser>(`${baseUrl}​/api​/BrainTeaser​/GetBrainTeaserAndWinner​/${slug}`);
+  }
+
+  getWithAnswer(slug: string): Observable<BrainTeaser> {
+    return this.http.get<BrainTeaser>(`${baseUrl}/api/BrainTeaser/GetBrainTeaserAndAnswer/${slug}`);
+  }
+
+  postAnswer(id: number, data: BrainTeaserAnswer): Observable<BrainTeaserAnswer> {
+    return this.http.post<BrainTeaserAnswer>(`${baseUrl}/api/BrainTeaser/AnswerBrainTeaser`, data, this.httpOptions);
+  }
+
+  approveAnswer(data: BrainTeaserRequest): Observable<BrainTeaserRequest> {
+      return this.http.post<BrainTeaserRequest>(`${baseUrl}/api/BrainTeaser/ApproveBrainTeaserAnswer`, data, this.httpOptions);
+  }
+
+  displayWinner(data: BrainTeaserRequest): Observable<BrainTeaserRequest> {
+    return this.http.post<BrainTeaserRequest>(`${baseUrl}/api/BrainTeaser/DisplayBrainTeaserWinner`, data, this.httpOptions);
   }
 }
 

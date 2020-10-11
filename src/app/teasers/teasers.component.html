@@ -4,79 +4,54 @@
 </div>
 
 
-
-<section class="section-plans">
-   <div class="plan-box">
-     <div class="container">
-      <ul>
-        <li><a href="#" class="line-page">5 Answers</a></li>
-        <li><a href="#" class="indent">posted an hour ago</a></li>
-      </ul>
-      <h2 class="heading__secondary">Riddle</h2>
-      <p class="long__copy">Two fathers and two sons have to share three apples, how is that possible?</p>
-          <ul class="universal">
-            <li class="uviversal__rick"><a href="#" class="btn btn-ghost">Answer It</a></li>
-            <li class="universal__rick"><a href="#" class="btn btn-link">View Answers</a></li>
-          </ul>
+<section class="section-plans" [ngClass]="isSelected(brainTeaser.id) ? 'shadow' : null" *ngFor="let brainTeaser of brainTeasers" (click)="toggleSelected(brainTeaser.id)">
+  <div class="plan-box">
+    <div class="container">
+      <div>
+        <ul>
+          <li><a href="#" class="line-page"  *ngIf="brainTeaser.brainTeaserAnswers?.length > 0">{{  brainTeaser.brainTeaserAnswers.length }} Answers</a></li>
+          <li><a href="#" class="indent">posted {{ brainTeaser.dateCreated | date: "fullDate" }}</a></li>
+        </ul>
+        <h2 class="heading__secondary">Riddle</h2>
+        <p class="long__copy">{{ brainTeaser.riddle }}</p>
+           <ul class="universal">
+              <li class="uviversal__rick"><a href="#" class="btn btn-ghost">Answer It</a></li>
+              <li class="universal__rick"><a href="#" class="btn btn-link">View Answers</a></li>
+            </ul>
+      </div>
+    </div>
+    <figure class="review">
+      <figcaption class="review__user">
+         <img src="/assets/img/arenas8.jpg" alt="" class="review__photo">
+         <div class="review__user-box">
+            <p class="review__user-name">Hauwa Ejukoriem</p>
+            <p class="review__user-date">..writes</p>
+            <p class="review__user-copy">Lorem ipsum dolor sit amet consectetur, doloribus nam consequuntur  et eligendi excepturi.</p>
+         </div>
+         <div class="review__rating">1 minutes ago</div>
+      </figcaption>
+   </figure>
+   <div class="container py-5">
+     <div class="media">
+      <img src="/assets/img/arenas20.svg" alt="" class="side-image">
+      <div class="media-body">
+        <div class="row">
+          <div class="col-sm-9">
+            <form (ngSubmit)="submitAnswer(brainTeaser.id)">
+              <div class="form-group">
+                 <input class="form-control" type="text" name="name" id="full name" placeholder="full name" [(ngModel)]="name">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="message" name="body" rows="3" type="text" placeholder="Your answer..." [(ngModel)]="body"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
      </div>
    </div>
-   <section class="section-plans">
-    <div class="plan-box">
-      <div class="container">
-       <ul>
-         <li><a href="#" class="line-page">5 Answers</a></li>
-         <li><a href="#" class="indent">posted 2 hours ago</a></li>
-       </ul>
-       <h2 class="heading__secondary">Riddle</h2>
-       <p class="long__copy">Two fathers and two sons have to share three apples, how is that possible?</p>
-           <ul class="universal">
-             <li class="uviversal__rick"><a href="#" class="btn btn-ghost">Answer It</a></li>
-             <li class="universal__rick"><a href="#" class="btn btn-link" style="margin-left: 2rem;">View Answers</a></li>
-           </ul>
-      </div>
-        <figure class="review">
-           <figcaption class="review__user">
-              <img src="/assets/img/arenas8.jpg" alt="" class="review__photo">
-              <div class="review__user-box">
-                 <p class="review__user-name">Hauwa Ejukoriem</p>
-                 <p class="review__user-date">..writes</p>
-                 <p class="review__user-copy">Lorem ipsum dolor sit amet consectetur, doloribus nam consequuntur  et eligendi excepturi.</p>
-              </div>
-              <div class="review__rating">1 minutes ago</div>
-           </figcaption>
-        </figure>
-        <figure class="review">
-          <figcaption class="review__user">
-             <img src="/assets/img/arenas8.jpg" alt="" class="review__photo">
-             <div class="review__user-box">
-                <p class="review__user-name">Hauwa Ejukoriem</p>
-                <p class="review__user-date">..writes</p>
-                <p class="review__user-copy">Lorem ipsum dolor sit amet consectetu. doloribus beatae consequatur perspiciatis quidem!</p>
-             </div>
-             <div class="review__rating">1 minutes ago</div>
-          </figcaption>
-       </figure>
-       <div class="container py-5">
-          <div class="media">
-            <img src="/assets/img/arenas20.svg" alt="" class="side-image">
-            <div class="media-body">
-              <div class="row">
-                <div class="col-sm-9">
-                  <form>
-                    <div class="form-group">
-                       <input class="form-control" type="text" id="full name" placeholder="full name">
-                    </div>
-                    <div class="form-group">
-                      <textarea class="form-control" id="message" rows="3" type="text" placeholder="Your answer..."></textarea>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-       </div>
-    </div>
- </section>
+  </div>
 </section>
 
 

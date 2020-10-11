@@ -19,6 +19,7 @@ import { VacanciesComponent } from './vacancies/vacancies.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogCreateComponent } from './blog-create/blog-create.component';
 import { BlogArticleComponent } from './blog-article/blog-article.component';
+import { BrainTeaserGetWithAnswerComponent } from './brain-teaser-get-with-answer/brain-teaser-get-with-answer.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { BlogArticleComponent } from './blog-article/blog-article.component';
     VacanciesComponent,
     BlogComponent,
     BlogCreateComponent,
-    BlogArticleComponent
+    BlogArticleComponent,
+    BrainTeaserGetWithAnswerComponent
   ],
   imports: [
   BrowserModule,

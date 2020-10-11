@@ -11,8 +11,15 @@ const baseUrl = 'http://inspirecodeclub-001-site1.ftempurl.com';
   providedIn: 'root'
 })
 export class VacancyService {
+   httpOptions = {
+     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+   };
 
   constructor(private http: HttpClient) {}
+
+   getAll(): Observable<Vacancy[]> {
+     return this.http.get<Vacancy[]>(`${baseUrl}/api/Vacancy/GetAllVacancies`);
+   }
 }
 
 
