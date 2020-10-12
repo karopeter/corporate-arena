@@ -15,23 +15,25 @@
         <h2 class="heading__secondary">Riddle</h2>
         <p class="long__copy">{{ brainTeaser.riddle }}</p>
            <ul class="universal">
-              <li class="uviversal__rick"><a href="#" class="btn btn-ghost">Answer It</a></li>
-              <li class="universal__rick"><a href="#" class="btn btn-link">View Answers</a></li>
+              <li class="uviversal__rick"><a href="#" class="btn btn-ghost" (click)="toggleView('answer')">Answer It</a></li>
+              <li class="universal__rick"><a href="#"  class="btn btn-link"  (click)="toggleView('answers')">View Answers</a></li>
             </ul>
       </div>
     </div>
-    <figure class="review">
-      <figcaption class="review__user">
+    <figure class="review" *ngIf="isSelected(brainTeaser.id)">
+      <figcaption class="review__user" *ngIf="view === 'answers'">
          <img src="/assets/img/arenas8.jpg" alt="" class="review__photo">
-         <div class="review__user-box">
-            <p class="review__user-name">Hauwa Ejukoriem</p>
+         <div class="review__user-box" *ngFor="let winner of brainTeaser.brainTeaserWinners">
+            <p class="review__user-name" *ngIf="winner.isDisplayed">{{ winner.userName }}</p>
             <p class="review__user-date">..writes</p>
-            <p class="review__user-copy">Lorem ipsum dolor sit amet consectetur, doloribus nam consequuntur  et eligendi excepturi.</p>
+            <p class="review__user-copy">{{ winner.answer }}</p>
          </div>
-         <div class="review__rating">1 minutes ago</div>
+         <div *ngFor="let winner of brainTeaser.brainTeaserWinners">
+          <div class="review__rating" *ngIf="winner.isDisplayed">{{ winner.dateCreated | date: "fullDate" }}</div>
+         </div>
       </figcaption>
    </figure>
-   <div class="container py-5">
+   <div class="container py-5" *ngIf="view === 'answer'">
      <div class="media">
       <img src="/assets/img/arenas20.svg" alt="" class="side-image">
       <div class="media-body">
