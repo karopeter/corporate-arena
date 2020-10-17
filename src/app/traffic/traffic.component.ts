@@ -1,38 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { TrafficService } from './traffic.service';
-import { TrafficUpdate } from '../services/trafficUpdate.service';
-import { ITraffic } from './traffic';
+import { TrafficUpdateService } from '../services/trafficUpdate.service';
+import { TrafficUpdate } from '../models/trafficUpdate';
 
 @Component({
   selector: 'app-traffic',
   templateUrl: './traffic.component.html',
-  styleUrls: ['./traffic.component.scss'],
-  providers: [TrafficService]
+  styleUrls: ['./traffic.component.scss']
 })
 export class TrafficComponent implements OnInit {
-  traffics: ITraffic[];
-  trafficUpdates = {
-    title: '',
-    description: ''
-  };
+  trafficUpdates: TrafficUpdate[];
 
-  constructor(private trafficService: TrafficService,  private trafficUpdateService: TrafficUpdate) { }
+  constructor(private trafficService: TrafficUpdateService) { }
 
   ngOnInit(): void {
-     this.traffics = this.trafficService.getTraffics();
-     this.retrieveTrafficUpdate();
+      this.trafficService.getAll().subscribe((trafficUpdates) => {
+          this.trafficUpdates = trafficUpdates;
+          console.log(trafficUpdates);
+      });
   }
 
-  retrieveTrafficUpdate(): void {
-    this.trafficUpdateService.getAll().subscribe(data => {
-      this.trafficUpdates = data;
-      console.log(data);
-     }, error => {
-       console.log(error);
-     });
-   }
-
-   refreshList(): void {
-     this.retrieveTrafficUpdate();
-   }
+  getUrl(slug: string): string {
+     return `traffic_updates/${slug}`;
+  }
 }

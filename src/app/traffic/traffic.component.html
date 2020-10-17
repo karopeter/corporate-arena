@@ -1,88 +1,88 @@
-<div class="container" *ngFor="let traffic of traffics">
-   <h1 class="heading__primary">{{traffic.trafficName}}</h1>
+<div class="container">
+   <h1 class="heading__primary">Traffic Updates</h1>
+   <a [routerLink]="['/traffic-update-create']" class="heading__primary" style="margin-left: 30rem; margin-top: 3rem;">Create New</a>
 </div>
 
 
-<section class="section-page" *ngIf="traffics && traffics.length">
-   <div class="container-page" *ngFor="let traffic of traffics">
-    <img [src]='traffic.trafficImage1' alt="" class="page-image">
+<section class="section-page">
+   <div class="container-page" *ngFor="let trafficUpdate of trafficUpdates">
+    <img src="/assets/img/arenas6.jpg" alt="" class="page-image">
     <div class="page-text">
+      <a href="#">
       <h1 class="small-caps">
-        {{traffic.trafficHeader}}
-        <br class="hidden-x">
-        {{traffic.trafficHeader1}}
+        {{ trafficUpdate.title }}
       </h1>
-      <span style="color: #000;">{{traffic.trafficSpan}}</span>
+      </a>
+      <span style="color: #000;">Posted on {{ trafficUpdate.dateCreated | date: "fullDate" }}</span>
       <p class="long-plan">
-       {{traffic.description2}}
+        {{ trafficUpdate.description }}
       </p>
-      <a href="#"><p class="long-paln" style="color: #6979FB; margin-left: 1rem;">see more <span><img [src]='traffic.trafficSpan2' alt="" class="span__image"></span></p></a>
+      <a href="#"><p class="long-paln" style="color: #6979FB; margin-left: 1rem;">see more <span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></p></a>
     </div>
    </div>
 </section>
 
 
-<section class="section-panel" *ngIf="traffics && traffics.length">
-    <div class="row-panel" *ngFor="let traffic of traffics">
-      <img [src]='traffic.trafficImage' alt="" class="panel-image">
+<section class="section-panel">
+    <div class="row-panel">
+      <img src="/assets/img/arenas17.jpg" alt="" class="panel-image">
       <div class="text">
           <h1 class="flush-panel">
-            {{traffic.trafficHeader}}
+            Friday Night Traffic Jam at Third
             <br class="hidden-xs">
-            {{traffic.trafficHeader1}}
+            Mainland Bridge: Cause Unknown
           </h1>
-          <span style="color: #000;">{{traffic.trafficSpan}}</span>
+          <span style="color: #000;">posted on Janurary 8th 2020</span>
           <p class="long-panel">
-            {{traffic.description1}}
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti alias reprehenderit consequuntur maxime deserunt repellendus
             <br class="hidden-xs">
-            {{traffic.description2}}
+            Sed officiis sit deleniti rerum sunt perspiciatis
             <br class="hidden-xs">
-            {{traffic.description3}}
+            Deleniti alias reprehenderit consequuntur maxime deserunt repellendus, fugit obcaecati provident dolorem dolor?
           </p>
           <p class="no-pad demi">
-            see more <span><img [src]='traffic.trafficSpan2' alt="" class="span__image"></span>
+            see more <span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span>
           </p>
       </div>
     </div>
-    <div class="row-panel" *ngFor="let traffic of traffics">
-      <img [src]='traffic.trafficImage1' alt="" class="panel-image">  
+    <div class="row-panel">
+      <img src="/assets/img/arenas6.jpg" alt="" class="panel-image">
       <div class="text">
           <h1 class="flush-panel">
-            {{traffic.trafficHeader}}
+            Friday Night Traffic Jam at Third
             <br class="hidden-xs">
-            {{traffic.trafficHeader1}}
+            Mainland Bridge: Cause Unknown
           </h1>
-          <span style="color: #000;">{{traffic.trafficSpan}}</span>
+          <span style="color: #000;">posted on Janurary 8th 2020</span>
           <p class="long-panel">
-            {{traffic.description1}}
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti alias reprehenderit consequuntur maxime deserunt repellendus
             <br class="hidden-xs">
-            {{traffic.description2}}
+            Sed officiis sit deleniti rerum sunt perspiciatis
             <br class="hidden-xs">
-            {{traffic.description3}}
-          </p>
+            Deleniti alias reprehenderit consequuntur maxime deserunt repellendus, fugit obcaecati provident dolorem dolor?
           <p class="no-pad demi">
-            see more <span><img [src]='traffic.trafficSpan2' alt="" class="span__image"></span>
+            see more <span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span>
           </p>
       </div>
     </div>
-    <div class="row-panel" *ngFor="let traffic of traffics">
-      <img [src]='traffic.trafficImage2' alt="" class="panel-image">
+    <div class="row-panel">
+      <img src="/assets/img/arenas18.jpg" alt="" class="panel-image">
       <div class="text">
           <h1 class="flush-panel">
-            {{traffic.trafficHeader}}
+            Friday Night Traffic Jam at Third
             <br class="hidden-xs">
-            {{traffic.trafficHeader1}}
+            Mainland Bridge: Cause Unknown
           </h1>
-          <span style="color: #000;">{{traffic.trafficSpan}}</span>
+          <span style="color: #000;">posted on Janurary 8th 2020</span>
           <p class="long-panel">
-            {{traffic.description1}}
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti alias reprehenderit consequuntur maxime deserunt repellendus
             <br class="hidden-xs">
-            {{traffic.description2}}
+            Sed officiis sit deleniti rerum sunt perspiciatis
             <br class="hidden-xs">
-            {{traffic.description3}}
+            Deleniti alias reprehenderit consequuntur maxime deserunt repellendus, fugit obcaecati provident dolorem dolor?
           </p>
           <p class="no-pad demi">
-            see more <span><img [src]='traffic.trafficSpan2' alt="" class="span__image"></span>
+            see more <span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span>
           </p>
       </div>
     </div>

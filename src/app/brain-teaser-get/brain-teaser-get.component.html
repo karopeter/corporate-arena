@@ -4,7 +4,7 @@
 </div>
 
 
-<section class="section-plans" [ngClass]="isSelected(brainTeaser.id) ? 'shadow' : null" *ngFor="let brainTeaser of brainTeasers" (click)="toggleSelected(brainTeaser.id)">
+<section class="section-plans" [ngClass]="isSelected(brainTeaser.id) ? 'shadow' : null" (click)="toggleSelected(brainTeaser.id)">
   <div class="plan-box">
     <div class="container">
       <div>
@@ -15,8 +15,8 @@
         <h2 class="heading__secondary">Riddle</h2>
         <p class="long__copy">{{ brainTeaser.riddle }}</p>
            <ul class="universal">
-              <li class="uviversal__rick"><a href="#" class="btn btn-ghost" (click)="toggleView('answer')">Answer It</a></li>
-              <li class="universal__rick"><a [routerLink]="['/brain-teaser:/id']"  class="btn btn-link"   (click)="toggleView('answers')">View Answers</a></li>
+              <li class="uviversal__rick"><a href="#" class="btn btn-ghost" (click)="toggleView('answer')">view Answers</a></li>
+              <li class="universal__rick"><a href="#"  class="btn btn-link" *ngIf="brainTeaser.brainTeaserWinners.length > 0" (click)="toggleView('answers')">View Winners</a></li>
             </ul>
       </div>
     </div>
@@ -27,12 +27,28 @@
             <p class="review__user-name" *ngIf="winner.isDisplayed">{{ winner.userName }}</p>
             <p class="review__user-date">..writes</p>
             <p class="review__user-copy"*ngIf="winner.isDisplayed">{{ winner.answer }}</p>
+            <button class="btn view-btn" *ngIf="winner.isDisplayed === false" (click)="toggleDisplayWinner(winner.id)">Display</button>
+            <button class="btn view-btn" *ngIf="winner.isDisplayed === false" (click)="toggleDisplayWinner(winner.id)">Undisplay</button>
          </div>
-         <div *ngFor="let winner of brainTeaser.brainTeaserWinners">
-          <div class="review__rating" *ngIf="winner.isDisplayed">{{ winner.dateCreated | date: "fullDate" }}</div>
-         </div>
+          <div class="review__rating" *ngFor="let winner of brainTeaser.brainTeaserWinners">
+            <div class="review__rating" *ngIf="winner.isDisplayed">{{ winner.dateCreated | date: "fullDate" }}</div>
+          </div>
       </figcaption>
+      <figcaption class="review__user" *ngIf="view === 'answers'">
+        <img src="/assets/img/arenas8.jpg" alt="" class="review__photo">
+        <div class="review__user-box" *ngFor="let answer of brainTeaser.brainTeaserAnswers">
+           <p class="review__user-name">{{ answer.userName }}</p>
+           <p class="review__user-date">..writes</p>
+           <p class="review__user-copy">{{ answer.answer }}</p>
+           <button class="btn view-btn" *ngIf="answer.isApproved === false" (click)="approveAnswer(answer.id)">Approve</button>
+           <button class="btn view-btn" *ngIf="answer.isApproved">Already Approved</button>
+        </div>
+         <div class="review__rating" *ngFor="let answer of brainTeaser.brainTeaserAnswers">
+          <div class="review__rating">{{ answer.dateCreated | date: "fullDate" }}</div>
+         </div>
+     </figcaption>
    </figure>
+
    <div class="container py-5" *ngIf="view === 'answer'">
      <div class="media">
       <img src="/assets/img/arenas20.svg" alt="" class="side-image">
@@ -55,17 +71,3 @@
    </div>
   </div>
 </section>
-
-
-
-<section class="section-features">
-  <div class="container">
-      <h3 class="heading__tertiary">Subscribe to our newsletter</h3>
-      <p>Mauris sollicitudin, magna nec portitor efficitur, quam ex.</p>
-  </div>
-  <form class="form-inline" style="margin-left: 22rem;">
-    <input class="form-control mr-sm-2" type="sign up" placeholder="Email Address" aria-label="Email Address">
-    <a href="#"><button  class="btn btn-outline-dark my-2 my-sm-0" type="Subscribe" style="color: #fff; border-radius: 1px solid white;">Subscribe</button></a>
-  </form>
-</section>
-

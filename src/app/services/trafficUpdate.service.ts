@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { TrafficUpdate } from '../models/TrafficUpdate';
+import { Comment } from '../models/comment';
 import { Observable } from 'rxjs';
+import { CommentRequest } from './../models/commentRequest';
+import { CommentRequestTrafficUpdate } from './../models/commentRequestTrafficUpdate';
 
 const baseUrl = 'http://inspirecodeclub-001-site1.ftempurl.com';
 
@@ -9,12 +13,28 @@ const baseUrl = 'http://inspirecodeclub-001-site1.ftempurl.com';
 })
 
 
-export class TrafficUpdate {
+export class TrafficUpdateService {
+
+    httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<any> {
-     return this.http.get(`${baseUrl}/api/TrafficUpdate/GetAllTrafficUpdates`);
+  getAll(): Observable<TrafficUpdate[]> {
+     return this.http.get<TrafficUpdate[]>(`${baseUrl}/api/TrafficUpdate/GetAllTrafficUpdates`);
+  }
+
+  getBySlug(slug: string): Observable<TrafficUpdate> {
+       return this.http.get<TrafficUpdate>(`${baseUrl}/api/TrafficUpdate/GetTrafficUpdate/${slug}`);
+  }
+
+  postTrafficUpdate(data: TrafficUpdate): Observable<TrafficUpdate> {
+    return this.http.post<TrafficUpdate>(`${baseUrl}/api/TrafficUpdate/saveTrafficUpdate`, data, this.httpOptions);
+  }
+
+  postComment(data: CommentRequestTrafficUpdate): Observable<CommentRequestTrafficUpdate> {
+    return this.http.post<CommentRequestTrafficUpdate>(`${baseUrl}/api/TrafficUpdate/CommentOnTrafficUpdate`, data, this.httpOptions);
   }
 }
 

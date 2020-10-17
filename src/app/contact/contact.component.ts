@@ -29,6 +29,7 @@ export class ContactComponent implements OnInit {
     };
     this.contactService.create(data).subscribe(response => {
       console.log(response);
+      alert('Contact Saved' + this.saveContact);
       this.submitted = true;
     }, error => {
       console.log(error);
