@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from '../models/Contact';
 import { ContactService } from '../services/contact.service';
 
 @Component({
@@ -7,42 +8,23 @@ import { ContactService } from '../services/contact.service';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  contact = {
-    email: '',
-    username: '',
-    message: ''
-  };
-  submitted = false;
+    contact: any = {};
 
   constructor(private contactService: ContactService) { }
-  contacts: any;
 
   ngOnInit(): void {
-    this.retrieveContact();
   }
 
-  saveContact(): void {
-    const data = {
-      email: this.contact.email,
-      username: this.contact.username,
-      message: this.contact.message
-    };
-    this.contactService.create(data).subscribe(response => {
-      console.log(response);
-      alert('Contact Saved' + this.saveContact);
-      this.submitted = true;
+  onSubmit(): void {
+    console.warn(this.contact);
+    this.contactService.postContact(this.contact).subscribe(next => {
+      console.warn('Message Sent' + next);
+      this.contact.userName = '';
+      this.contact.email = '';
+      this.contact.message = '';
     }, error => {
-      console.log(error);
+      console.warn('message failed to send');
     });
-  }
-
-  retrieveContact(): void {
-     this.contactService.getAll().subscribe(data => {
-       this.contacts = data;
-       console.log(data);
-     }, error => {
-       console.log(error);
-     });
   }
 
 }

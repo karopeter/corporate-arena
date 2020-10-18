@@ -18,21 +18,21 @@
   <div class="col-1-of-2">
     <div class="plan-box">
      <a><img src="/assets/img/mail2.svg" alt="" class="span__image"><span class="heading__tertiary">Contact Us</span></a>
-     <form action="#" class="form">
+     <form #contactPost="ngForm" action="#" class="form" (ngSubmit)="onSubmit()">
        <div class="form__group">
-         <input type="text" class="form__input" placeholder="Your name" id="name" required>
+         <input type="text" class="form__input" name="name" [(ngModel)]="contact.userName" placeholder="Your name"  required>
            <label for="name" class="form__label">Full name</label>
        </div>
        <div class="form__group">
-        <input type="text" class="form__input" placeholder="Email address" id="email" required>
+        <input type="email" name="email" [(ngModel)]="contact.email" class="form__input"  placeholder="Email address"  required>
         <label for="email" class="form__label">Email address</label>
       </div>
       <div class="form__group">
-        <input type="text" class="form__input" placeholder="message" id="email" required>
+        <input type="text" name="body" [(ngModel)]="contact.message" class="form__input" placeholder="Message"   required>
         <label for="email" class="form__label">Messages</label>
       </div>
       <div class="form__group">
-        <button (click)="saveContact()" class="btn btn--blue">Send Message &rarr;</button>
+        <button  class="btn btn--blue">Send Message &rarr;</button>
       </div>
      </form>
     </div>

@@ -15,7 +15,7 @@
         <h2 class="heading__secondary">Riddle</h2>
         <p class="long__copy">{{ brainTeaser.riddle }}</p>
            <ul class="universal">
-              <li class="uviversal__rick"><a href="#" class="btn btn-ghost" (click)="toggleView('answer')">Answer It</a></li>
+              <li class="uviversal__rick"><a [routerLink]="['/Questions-create']" class="btn btn-ghost" (click)="toggleView('answer')">Answer It</a></li>
               <li class="universal__rick"><a [routerLink]="['/brain-teaser:/id']"  class="btn btn-link"   (click)="toggleView('answers')">View Answers</a></li>
             </ul>
       </div>

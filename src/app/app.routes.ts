@@ -11,6 +11,7 @@ import { BlogCreateComponent } from './blog-create/blog-create.component';
 import { BlogArticleComponent } from './blog-article/blog-article.component';
 import { BrainTeaserGetComponent } from './brain-teaser-get/brain-teaser-get.component';
 import { TrafficUpdateCreateComponent } from './traffic-update-create/traffic-update-create.component';
+import { QuestionCreateComponent } from './Question/question-create/question-create.component';
 
 
 
@@ -22,6 +23,7 @@ export const APP_ROUTES: Routes = [
   { path: 'teasers', component: TeasersComponent },
   { path: 'brain-teaser/:id', component: BrainTeaserGetComponent },
   { path: 'brain-teaser-admin/:id', component: BrainTeaserGetWithAnswerComponent },
+  { path: 'Questions-create', component:  QuestionCreateComponent },
   { path: 'traffics', component: TrafficComponent },
   { path: 'traffic-update-create', component: TrafficUpdateCreateComponent  },
   { path: 'contacts', component: ContactComponent },
