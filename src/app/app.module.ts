@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule  } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -26,6 +28,7 @@ import { TrafficUpdateCreateComponent } from './traffic-update-create/traffic-up
 import { QuestionListComponent } from './Question/question-list/question-list.component';
 import { QuestionCreateComponent } from './Question/question-create/question-create.component';
 import { QuestionDetailsComponent } from './Question/question-details/question-details.component';
+import { QuestionEditComponent } from './Question/question-edit/question-edit.component';
 
 
 
@@ -51,12 +54,15 @@ import { QuestionDetailsComponent } from './Question/question-details/question-d
     TrafficUpdateCreateComponent,
     QuestionListComponent,
     QuestionCreateComponent,
-    QuestionDetailsComponent
+    QuestionDetailsComponent,
+    QuestionEditComponent
   ],
   imports: [
   BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
@@ -66,6 +72,8 @@ import { QuestionDetailsComponent } from './Question/question-details/question-d
       { path: 'brain-teaser/:id', component: BrainTeaserGetComponent },
       { path: 'brain-teaser-admin/:id', component: BrainTeaserGetWithAnswerComponent },
       { path: 'Questions-create', component:  QuestionCreateComponent },
+      { path: 'Question-list', component: QuestionListComponent },
+      { path: 'Question-details', component: QuestionDetailsComponent },
       { path: 'traffics', component: TrafficComponent },
       { path: 'traffic-update-create', component: TrafficUpdateCreateComponent  },
       { path: 'contacts', component: ContactComponent },

@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~10.0.9",
+    "@angular/animations": "^10.0.14",
     "@angular/common": "~10.0.9",
     "@angular/compiler": "~10.0.9",
     "@angular/core": "~10.0.9",
@@ -24,6 +24,7 @@
     "helmet": "^4.1.0",
     "mongoose": "^5.10.3",
     "morgan": "^1.10.0",
+    "ngx-toastr": "^13.1.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

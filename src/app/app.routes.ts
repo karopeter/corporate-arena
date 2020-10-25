@@ -12,6 +12,8 @@ import { BlogArticleComponent } from './blog-article/blog-article.component';
 import { BrainTeaserGetComponent } from './brain-teaser-get/brain-teaser-get.component';
 import { TrafficUpdateCreateComponent } from './traffic-update-create/traffic-update-create.component';
 import { QuestionCreateComponent } from './Question/question-create/question-create.component';
+import { QuestionListComponent } from './Question/question-list/question-list.component';
+import { QuestionDetailsComponent } from './Question/question-details/question-details.component';
 
 
 
@@ -24,6 +26,8 @@ export const APP_ROUTES: Routes = [
   { path: 'brain-teaser/:id', component: BrainTeaserGetComponent },
   { path: 'brain-teaser-admin/:id', component: BrainTeaserGetWithAnswerComponent },
   { path: 'Questions-create', component:  QuestionCreateComponent },
+  { path: 'Question-list', component: QuestionListComponent },
+  { path: 'Question-details', component: QuestionDetailsComponent },
   { path: 'traffics', component: TrafficComponent },
   { path: 'traffic-update-create', component: TrafficUpdateCreateComponent  },
   { path: 'contacts', component: ContactComponent },

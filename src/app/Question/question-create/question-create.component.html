@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="heading__primary">Brain Teasers Question</h1>
+  <h1 class="heading__primary">Create Question</h1>
   <img  src="/assets/img/arenas12.svg" alt="" class="images">
 </div>
 
@@ -7,53 +7,23 @@
 <section class="section-plans">
   <div class="plan-box">
     <div class="container">
-      <div>
-        <ul>
-          <li><a href="#" class="line-page"> Answers</a></li>
-          <li><a href="#" class="indent">posted date</a></li>
-        </ul>
-        <h2 class="heading__secondary">Questions</h2>
-        <p class="long__copy">Where is the white house located?</p>
-           <ul class="universal">
-              <li class="uviversal__rick"><a href="#" class="btn btn-ghost">Answers it</a></li>
-              <li class="universal__rick"><a href="#"  class="btn btn-link">View Answers</a></li>
-            </ul>
-      </div>
+       <h3 class="display-4 text-muted" style="font-size: 20px; color: #000;">Create A New Question</h3>
+       <div class="row">
+         <div class="col-sm-9">
+           <form (ngSubmit)="submitQuestion()">
+             <div class="form-group">
+               <label for="question" style="color: #000;">Question Content</label>
+               <input class="form-control" type="text" id="name" placeholder="Enter a new question" [(ngModel)]="content" name="content">
+             </div>
+             <div class="form-group">
+               <small class="form-text text-muted" id="helpFile">Maximum page size in three yottabytes.</small>
+             </div>
+             <button type="submit" class="btn btn-success">Submit</button>
+           </form>
+         </div>
+         <a [routerLink]="['/Question-list']" class="btn btn-info mt-5" style="margin-left: 20rem;  margin-top: 2rem;">Load more</a>
+       </div>
     </div>
-     <div class="container py-5">
-     <div class="media">
-      <img src="/assets/img/arenas20.svg" alt="" class="side-image">
-      <div class="media-body">
-        <div class="row">
-          <div class="col-sm-9">
-            <form>
-              <fieldset class="form-group">
-                <div class="form-check">
-                   <label class="form-label-check" style="color: #000;">
-                      <input type="radio" class="form-check-input" name="answers" value="option1">
-                      Atlanta
-                   </label>
-                </div>
-                <div class="form-check">
-                   <label class="form-label-check" style="color: #000;">
-                      <input type="radio" class="form-check-input" name="answers" value="option2">
-                      Washigton dc
-                   </label>
-                </div>
-                <div class="form-check">
-                  <label class="form-label-check" style="color: #000;">
-                     <input type="radio" class="form-check-input" name="answers" value="option3">
-                      Florida
-                  </label>
-                </div>
-              </fieldset>
-              <button class="btn btn-info mt-5">Submit</button>
-            </form>
-           </div>
-        </div>
-      </div>
-     </div>
-   </div>
   </div>
 </section>
 

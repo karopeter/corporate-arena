@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../models/Contact';
 import { ContactService } from '../services/contact.service';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,7 +11,7 @@ import { ContactService } from '../services/contact.service';
 export class ContactComponent implements OnInit {
     contact: any = {};
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private toastService: ToastService) { }
 
   ngOnInit(): void {
   }

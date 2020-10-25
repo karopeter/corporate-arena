@@ -1,1 +1,36 @@
-<p>question-list works!</p>
+<div class="container">
+  <h1 class="heading__primary">Questions List</h1>
+  <img  src="/assets/img/arenas12.svg" alt="" class="images">
+</div>
+
+<section class="section-plans">
+   <div class="plan-box">
+     <div class="container">
+       <p class="m-2">&nbsp;</p>
+
+        <a [routerLink]="['/Questions-create']" class="heading__primary">
+           Create Question
+        </a>
+
+       <table class="table" [ngClass]="isSelected(question.id) ? 'shadow' : null" *ngFor="let question of questions" (clik)="toggleSelected(question.id)">
+         <thead>
+            <tr class="table-active">
+                <th scope="col">#</th>
+                <th scope="col">Question</th>
+                <!-- <th scope="col">Option</th>
+                <th scope="col">Answer</th> -->
+            </tr>
+         </thead>
+         <tbody>
+           <tr scope="row" class="table-success">
+               <td>{{ question.id }}</td>
+               <td>{{ question.content }}</td>
+               <!-- <td>(A) Atlanta    (B) Washigton dc (C) Florida</td>
+               <td>Washigton dc</td> -->
+           </tr>
+         </tbody>
+       </table>
+      </div>
+   </div>
+</section>
+
