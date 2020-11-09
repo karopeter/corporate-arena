@@ -20,6 +20,6 @@ export class TrafficComponent implements OnInit {
   }
 
   getUrl(slug: string): string {
-     return `traffic_updates/${slug}`;
+     return `traffic-update-create/${slug}`;
   }
 }

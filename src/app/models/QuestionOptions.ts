@@ -1,7 +1,7 @@
 export interface QuestionOptions {
    id: number;
    content: string;
-   optionLettter: string;
+   optionLetter: string;
    questionId: number;
    isCorrect: boolean;
    isDisplayed: boolean;

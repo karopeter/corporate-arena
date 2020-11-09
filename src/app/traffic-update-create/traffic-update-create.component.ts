@@ -35,7 +35,8 @@ export class TrafficUpdateCreateComponent implements OnInit {
     this.trafficService.postTrafficUpdate(this.trafficUpdate).subscribe((response) => {
         this.content = '';
         this.title = '';
-        this.route.navigate(['/traffic_updates']);
+        this.route.navigate(['/traffic-update-create']);
+        console.log(response);
     });
   }
 

@@ -5,7 +5,7 @@ import { JobCategory } from '../models/jobCategory';
 import { JobType } from '../models/jobType';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://inspirecodeclub-001-site1.ftempurl.com';
+const baseUrl = 'http://inspirecc-001-site1.dtempurl.com';
 
 @Injectable({
   providedIn: 'root'

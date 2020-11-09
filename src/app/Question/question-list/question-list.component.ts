@@ -55,7 +55,7 @@ export class QuestionListComponent implements OnInit {
   }
 
   getUrl(slug: string): string {
-     return `/question/${slug}`;
+     return `/Question-option/${slug}`;
   }
 
 }

@@ -1,0 +1,64 @@
+
+$color-primary-blue: #6979FB;
+$color-primary: #fff;
+$color-light-grey: #f4f4f4;
+$color-dark: #000;
+$color-light-1: #efefef;
+$color-light-2: #e8e8e8;
+$color-light-3: #fcfcfc;
+$color-light-grey-2: #D5E9FA;
+$color-primary-green: #00C48C;
+$color-light-green: #7DDFC3;
+$color-primary-purple: #BD7AE3;
+$color-primary-purple-1: #8461C9;
+
+
+
+.heading__primary {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 3rem;
+  color: $color-primary-blue;
+  font-weight: 300;
+}
+
+
+.images {
+  margin-top: 1.5rem;
+  margin-left: 16rem;
+  margin-bottom: 6rem;
+}
+
+
+.section-plans {
+  background-color: $color-light-grey;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  background-size: cover;
+  padding: 2rem 0rem;
+}
+
+.plan-box {
+  background-color: $color-primary;
+  border-radius: 5px;
+  width: 70%;
+  margin-left: 10rem;
+  box-shadow: 0 2px 2px $color-light-1;
+}
+
+.plan-box div {
+  padding: 15px;
+  border-bottom: 1px solid $color-light-2;
+}
+
+.paln-box div:first-child{
+  background-color: $color-light-3;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.plan-box div:last-child{
+  text-align: center;
+  border: 0;
+}

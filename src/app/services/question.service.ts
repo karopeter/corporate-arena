@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { QuestionOptions } from '../models/QuestionOptions';
+import { QuestionAnswers } from '../models/QuestionAnswers';
 import { Question } from '../models/Question';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const baseUrl = 'http://inspirecodeclub-001-site1.ftempurl.com';
+const baseUrl = 'http://inspirecc-001-site1.dtempurl.com';
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +28,10 @@ export class QuestionService {
    postQuestion(data: Question): Observable<any> {
      return this.http.post(`${baseUrl}/api/Question`, data, {responseType: 'text'});
    }
+
+   postQuestionOptions(id: number, data: QuestionOptions): Observable<any> {
+      return this.http.post(`${baseUrl}/api/Question/option/${id}`, data, {responseType: 'text'});
+   }
 }
+
+

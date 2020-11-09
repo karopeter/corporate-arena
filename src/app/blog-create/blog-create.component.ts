@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Blog } from '../models/blog';
 import {  CommentRequest } from '../models/commentRequest';
 import { BlogService } from '../services/blog.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-blog-create',
@@ -15,7 +16,7 @@ export class BlogCreateComponent implements OnInit {
   content = '';
 
 
-  constructor(private blogService: BlogService, private route: Router) { }
+  constructor(private blogService: BlogService, private route: Router, private notifyService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -37,7 +38,12 @@ export class BlogCreateComponent implements OnInit {
        this.content = '';
        this.title = '';
        this.route.navigate(['/blog']);
+       console.log(response);
     });
+  }
+
+  showToasterSuccess() {
+     this.notifyService.showSuccess('Message submitted successfully!!', 'http://inspirecc-001-site1.dtempurl.com')
   }
 
 }

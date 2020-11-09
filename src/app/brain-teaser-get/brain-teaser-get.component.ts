@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionService } from './../services/question.service';
+import { Question } from './../models/Question';
+import { QuestionOptions } from './../models/QuestionOptions';
 import { ActivatedRoute } from '@angular/router';
-import { BrainTeaser } from '../models/brainTeaser';
-import { BrainTeaserAnswer } from '../models/brainTeaserAnswer';
-import { BrainTeaserRequest } from '../models/brainTeaserRequest';
-import { BrainTeaserService } from '../services/brain-teaser.service';
-
 
 @Component({
   selector: 'app-brain-teaser-get',
@@ -12,82 +10,52 @@ import { BrainTeaserService } from '../services/brain-teaser.service';
   styleUrls: ['./brain-teaser-get.component.scss']
 })
 export class BrainTeaserGetComponent implements OnInit {
-  brainTeaser: BrainTeaser;
-  name = '';
-  body = '';
-  brainTeaserId;
+  questions: Question[];
+  content = '';
+  questionOptions: QuestionOptions;
   selectedBrainTeaser: number;
+  page: number;
+  pageSize: number;
+  questionId;
   view = 'answer';
-  userId = 1;
-  isApproved = false;
-  isDisplayed = false;
+  username = 'admin';
+  selectedEntry: boolean;
 
-  constructor( private teasersService: BrainTeaserService, private route: ActivatedRoute) { }
+  constructor(private questionService: QuestionService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.teasersService.getWithAnswer(this.route.snapshot.paramMap.get('id')).subscribe((brainTeaser) => {
-        this.brainTeaser = brainTeaser;
-        console.log(this.brainTeaser);
-        this.brainTeaserId = brainTeaser.id;
+    this.page = 1;
+    this.pageSize = 10;
+    this.questionService.getAll(1, 10).subscribe((data) => {
+      this.questions = data;
+      if (this.questions.length > 0) {
+         this.selectedBrainTeaser = this.questions[0].id;
+      }
     });
   }
 
-  refreshPage(): void {
-     this.teasersService.getWithAnswer(this.route.snapshot.paramMap.get('id')).subscribe((brainTeaser) => {
-         this.brainTeaser = brainTeaser;
-         console.log(this.brainTeaser);
-         this.brainTeaserId = brainTeaser.id;
-     });
-  }
+  toggleView(view: string): void {
+    this.view = view;
+}
 
-   toggleView(view: string): void {
-      this.view = view;
-   }
+toggleSelected(selected: number = null): void {
+    if (selected) {
+      if (this.isSelected(selected)) {
+        return;
+      }
+      this.selectedBrainTeaser = selected;
+      console.log(selected);
+      return;
+    }
+    this.selectedBrainTeaser = null;
+}
 
-    toggleSelected(selected: number = null): void {
-        if (selected) {
-          if (this.isSelected(selected)) {
-             return;
-          }
-          this.selectedBrainTeaser = selected;
-          console.log(selected);
-          return;
-        }
-        this.selectedBrainTeaser = null;
-    }
-    isSelected(id: number): boolean {
-        return id === this.selectedBrainTeaser;
-    }
+isSelected(id: number): boolean {
+  return id === this.selectedBrainTeaser;
+}
 
-    approveAnswer(id: number): void {
-       const approve: BrainTeaserRequest = {
-         userId: this.userId,
-         brainTeaserID: id
-       };
-       console.log(id);
-       this.teasersService.approveAnswer(approve).subscribe((response) => {
-         console.log(response);
-       });
-       this.isApproved = true;
-       this.refreshPage();
-       window.location.reload();
-    }
+onSelectionChange(entry): void {
+  this.selectedEntry = entry;
+}
 
-    toggleDisplayWinner(id: number): void {
-        const winner: BrainTeaserRequest = {
-           userId: this.userId,
-           brainTeaserID: id
-        };
-        console.log(id);
-        this.teasersService.displayWinner(winner).subscribe((response) => {
-          console.log(response);
-        });
-        this.isDisplayed = true;
-        this.refreshPage();
-        window.location.reload();
-    }
-
-    getUrl(slug: number): string {
-       return `/brain-teaser/${slug}`;
-    }
 }

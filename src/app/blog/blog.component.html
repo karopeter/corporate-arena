@@ -3,7 +3,7 @@
 </div>
 
 <a [routerLink]="['/blog-create']" class="title">
-  <h2 class="text-left link" style="text-align: center; margin-left: 55rem; margin-top: 2rem; font-size: 15px; font-weight: 300;">Create</h2>
+  <h2 class="text-left link" style="text-align: center; margin-left: 55rem; margin-top: 2rem; font-size: 15px; font-weight: 300;">Create Article</h2>
 </a>
 
 
@@ -11,9 +11,11 @@
   <div class="container-page" *ngIf="featuredBlog">
    <img src="/assets/img/arenas6.jpg" alt="" class="page-image">
    <div class="page-text">
-     <h1 class="small-caps">
+      <a href="#">
+      <h1 class="small-caps">
        {{ featuredBlog.title }}
-     </h1>
+      </h1>
+      </a>
      <span style="color: #000;">posted on {{ featuredBlog.dateCreated | date: "fullDate" }}</span>
      <p class="long-plan">
       {{ featuredBlog.content }}

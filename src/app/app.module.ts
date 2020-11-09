@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
-import { ToastrModule  } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -29,6 +29,8 @@ import { QuestionListComponent } from './Question/question-list/question-list.co
 import { QuestionCreateComponent } from './Question/question-create/question-create.component';
 import { QuestionDetailsComponent } from './Question/question-details/question-details.component';
 import { QuestionEditComponent } from './Question/question-edit/question-edit.component';
+import { QuestionOptionComponent } from './Question/question-option/question-option.component';
+import { NotificationComponent } from './notification/notification.component';
 
 
 
@@ -55,25 +57,28 @@ import { QuestionEditComponent } from './Question/question-edit/question-edit.co
     QuestionListComponent,
     QuestionCreateComponent,
     QuestionDetailsComponent,
-    QuestionEditComponent
+    QuestionEditComponent,
+    QuestionOptionComponent,
+    NotificationComponent
   ],
   imports: [
-  BrowserModule,
-    AppRoutingModule,
-    FormsModule,
+    BrowserModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/arenas', pathMatch: 'full' },
       { path: 'arenas', component: ArenaComponent },
       { path: 'teasers', component: TeasersComponent },
-      { path: 'brain-teaser/:id', component: BrainTeaserGetComponent },
+      { path: 'brain-teaser-get/:id', component: BrainTeaserGetComponent },
       { path: 'brain-teaser-admin/:id', component: BrainTeaserGetWithAnswerComponent },
       { path: 'Questions-create', component:  QuestionCreateComponent },
       { path: 'Question-list', component: QuestionListComponent },
-      { path: 'Question-details', component: QuestionDetailsComponent },
+      { path: 'Question-details/:id', component: QuestionDetailsComponent },
+      { path: 'Question-option/:id', component: QuestionOptionComponent },
       { path: 'traffics', component: TrafficComponent },
       { path: 'traffic-update-create', component: TrafficUpdateCreateComponent  },
       { path: 'contacts', component: ContactComponent },

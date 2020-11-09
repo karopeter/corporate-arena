@@ -3,56 +3,65 @@
   <img  src="/assets/img/arenas12.svg" alt="" class="images">
 </div>
 
+<div class="container">
+  <h1 class="heading__primary">
+   <a [routerLink]="['/Questions-create']">Create a Question</a>
+  </h1>
+</div>
 
-<section class="section-plans" [ngClass]="isSelected(brainTeaser.id) ? 'shadow' : null" *ngFor="let brainTeaser of brainTeasers" (click)="toggleSelected(brainTeaser.id)">
+
+<section class="section-plans" [ngClass]="isSelected(question.id) ? 'shadow' : null" *ngFor="let question of questions" (click)="toggleSelected(question.id)">
   <div class="plan-box">
     <div class="container">
       <div>
         <ul>
-          <li><a href="#" class="line-page"  *ngIf="brainTeaser.brainTeaserAnswers?.length > 0">{{  brainTeaser.brainTeaserAnswers.length }} Answers</a></li>
-          <li><a href="#" class="indent">posted {{ brainTeaser.dateCreated | date: "fullDate" }}</a></li>
+          <li><a href="#" class="line-page" *ngIf="question.questionOptions?.length > 1">{{ question.questionOptions.length }} option</a></li>
+          <li><a href="#" class="indent">Posted {{ question.createdOn | date: "fullDate" }}</a></li>
         </ul>
-        <h2 class="heading__secondary">Riddle</h2>
-        <p class="long__copy">{{ brainTeaser.riddle }}</p>
+        <h2 class="heading__secondary">Question</h2>
+        <p class="long__copy">
+          {{ question.content}}
+        </p>
            <ul class="universal">
-              <li class="uviversal__rick"><a [routerLink]="['/Questions-create']" class="btn btn-ghost" (click)="toggleView('answer')">Answer It</a></li>
-              <li class="universal__rick"><a [routerLink]="['/brain-teaser:/id']"  class="btn btn-link"   (click)="toggleView('answers')">View Answers</a></li>
+              <li class="uviversal__rick"><a href="#" class="btn btn-ghost">Answer It</a></li>
+              <li class="universal__rick"><a href="#"  class="btn btn-link">View Answers</a></li>
             </ul>
       </div>
     </div>
-    <figure class="review" *ngIf="isSelected(brainTeaser.id)">
-      <figcaption class="review__user" *ngIf="view === 'answers'">
-         <img src="/assets/img/arenas8.jpg" alt="" class="review__photo">
-         <div class="review__user-box" *ngFor="let winner of brainTeaser.brainTeaserWinners">
-            <p class="review__user-name" *ngIf="winner.isDisplayed">{{ winner.userName }}</p>
-            <p class="review__user-date">..writes</p>
-            <p class="review__user-copy"*ngIf="winner.isDisplayed">{{ winner.answer }}</p>
-         </div>
-         <div *ngFor="let winner of brainTeaser.brainTeaserWinners">
-          <div class="review__rating" *ngIf="winner.isDisplayed">{{ winner.dateCreated | date: "fullDate" }}</div>
-         </div>
-      </figcaption>
-   </figure>
-   <div class="container py-5" *ngIf="view === 'answer'">
-     <div class="media">
-      <img src="/assets/img/arenas20.svg" alt="" class="side-image">
-      <div class="media-body">
-        <div class="row">
-          <div class="col-sm-9">
-            <form (ngSubmit)="submitAnswer(brainTeaser.id)">
-              <div class="form-group">
-                 <input class="form-control" type="text" name="name" id="full name" placeholder="full name" [(ngModel)]="name">
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" id="message" name="body" rows="3" type="text" placeholder="Your answer..." [(ngModel)]="body"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
+    <div class="container py-5">
+      <div class="media">
+        <img src="/assets/img/arenas20.svg" alt="" class="side-image">
+        <div class="media-body">
+           <div class="row">
+            <div class="col-sm-9">
+             <form>
+               <fieldset class="form-group">
+                <div class="form-check">
+                  <label class="form-label-check" style="color: #000;">
+                     <input type="radio" class="form-check-input" name="" value="">
+                     Atlanta
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-label-check" style="color: #000;">
+                     <input type="radio" class="form-check-input" name="" value="">
+                     Washignton dc
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-label-check" style="color: #000;">
+                     <input type="radio" class="form-check-input" name="" value="">
+                     Florida
+                  </label>
+                </div>
+             </fieldset>
+               <button class="btn btn-info mt-5">Submit</button>
+             </form>
+            </div>
+           </div>
         </div>
       </div>
-     </div>
-   </div>
+    </div>
   </div>
 </section>
 

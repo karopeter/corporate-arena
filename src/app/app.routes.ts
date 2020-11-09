@@ -14,6 +14,7 @@ import { TrafficUpdateCreateComponent } from './traffic-update-create/traffic-up
 import { QuestionCreateComponent } from './Question/question-create/question-create.component';
 import { QuestionListComponent } from './Question/question-list/question-list.component';
 import { QuestionDetailsComponent } from './Question/question-details/question-details.component';
+import { QuestionOptionComponent } from './Question/question-option/question-option.component';
 
 
 
@@ -27,7 +28,8 @@ export const APP_ROUTES: Routes = [
   { path: 'brain-teaser-admin/:id', component: BrainTeaserGetWithAnswerComponent },
   { path: 'Questions-create', component:  QuestionCreateComponent },
   { path: 'Question-list', component: QuestionListComponent },
-  { path: 'Question-details', component: QuestionDetailsComponent },
+  { path: 'Question-details/:id', component: QuestionDetailsComponent },
+  { path: 'Question-option/:id', component: QuestionOptionComponent },
   { path: 'traffics', component: TrafficComponent },
   { path: 'traffic-update-create', component: TrafficUpdateCreateComponent  },
   { path: 'contacts', component: ContactComponent },

@@ -1,0 +1,41 @@
+<div class="container">
+  <h1 class="heading__primary">Question Options</h1>
+  <img  src="/assets/img/arenas12.svg" alt="" class="images">
+</div>
+
+<section class="section-plans">
+   <div class="plan-box">
+      <div class="container">
+        <h3 class="display-4 text-muted" style="font-size: 20px; color: #000;">Create Question Options</h3>
+         <div class="row">
+           <div class="col-sm-9">
+             <form (ngSubmit)="submitOption()">
+               <div class="form-group">
+                <label for="name" style="color: #000;">content</label>
+                <input class="form-control" type="text" id="name" placeholder="content"  [(ngModel)]="content" name="content">
+               </div>
+               <div class="form-group">
+                 <label for="optionLetter" style="color: #000;">optionLetter</label>
+                 <select id="optionLetter" class="form-control" [(ngModel)]="optionLetter"  name="optionLetter">
+                   <option value="A">A</option>
+                   <option value="B">B</option>
+                   <option value="C">C</option>
+                   <option value="D">D</option>
+                   <option value="E">E</option>
+                 </select>
+               </div>
+               <div class="form-group">
+                  <input type="radio" value="{{ isTrue }}" name="{{ selectedEntry }}" (change)="onSelectionChange(isTrue)">
+                  True
+               </div>
+               <div class="form-group">
+                 <input type="radio" value="{{ isFalse }}" name="{{ selectedEntry }}" (change)="onSelectionChange(isFalse)">
+                 False
+               </div>
+               <button type="submit" class="btn btn-success">Submit</button>
+             </form>
+           </div>
+         </div>
+      </div>
+   </div>
+</section>

@@ -8,25 +8,19 @@
      <div class="container">
        <p class="m-2">&nbsp;</p>
 
-        <a [routerLink]="['/Questions-create']" class="heading__primary">
-           Create Question
-        </a>
+        <a href="#" class="heading__primary">Create options</a>
 
-       <table class="table" [ngClass]="isSelected(question.id) ? 'shadow' : null" *ngFor="let question of questions" (clik)="toggleSelected(question.id)">
+       <table class="table" [ngClass]="isSelected(question.id) ? 'shadow' : null" *ngFor="let question of questions" (click)="toggleSelected(question.id)">
          <thead>
             <tr class="table-active">
-                <th scope="col">#</th>
+                <th scope="col">#ID</th>
                 <th scope="col">Question</th>
-                <!-- <th scope="col">Option</th>
-                <th scope="col">Answer</th> -->
             </tr>
          </thead>
          <tbody>
            <tr scope="row" class="table-success">
                <td>{{ question.id }}</td>
-               <td>{{ question.content }}</td>
-               <!-- <td>(A) Atlanta    (B) Washigton dc (C) Florida</td>
-               <td>Washigton dc</td> -->
+               <a routerLink="{{ getUrl(question.id)}}"><td>{{ question.content }}</td></a>
            </tr>
          </tbody>
        </table>

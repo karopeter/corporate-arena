@@ -4,49 +4,53 @@
 </div>
 
 
-<section class="section-plans" [ngClass]="isSelected(brainTeaser.id) ? 'shadow' : null" (click)="toggleSelected(brainTeaser.id)">
+<section class="section-plans" [ngClass]="isSelected(question.id) ? 'shadow' : null" *ngFor="let question of questions" (click)="toggleSelected(question.id)">
   <div class="plan-box">
     <div class="container">
       <div>
         <ul>
-          <li><a href="#" class="line-page"  *ngIf="brainTeaser.brainTeaserAnswers?.length > 0">{{  brainTeaser.brainTeaserAnswers.length }} Answers</a></li>
-          <li><a href="#" class="indent">posted {{ brainTeaser.dateCreated | date: "fullDate" }}</a></li>
+          <li><a href="#" class="line-page" *ngIf="question.questionOptions?.length > 1">{{ question.questionOptions.length }} option</a></li>
+          <li><a href="#" class="indent">Posted {{ question.createdOn | date: "fullDate" }}</a></li>
         </ul>
-        <h2 class="heading__secondary">Riddle</h2>
-        <p class="long__copy">{{ brainTeaser.riddle }}</p>
+        <h2 class="heading__secondary">Question</h2>
+        <p class="long__copy">{{ question.content}}</p>
            <ul class="universal">
-              <li class="uviversal__rick"><a href="#" class="btn btn-ghost" (click)="toggleView('answer')">view Answers</a></li>
-              <li class="universal__rick"><a href="#"  class="btn btn-link" *ngIf="brainTeaser.brainTeaserWinners.length > 0" (click)="toggleView('answers')">View Winners</a></li>
+              <li class="uviversal__rick"><a href="#" class="btn btn-ghost">view Answers</a></li>
+              <li class="universal__rick"><a href="#"  class="btn btn-link">View Winners</a></li>
             </ul>
       </div>
     </div>
-    <figure class="review" *ngIf="isSelected(brainTeaser.id)">
-      <figcaption class="review__user" *ngIf="view === 'answers'">
-         <img src="/assets/img/arenas8.jpg" alt="" class="review__photo">
-         <div class="review__user-box" *ngFor="let winner of brainTeaser.brainTeaserWinners">
-            <p class="review__user-name" *ngIf="winner.isDisplayed">{{ winner.userName }}</p>
-            <p class="review__user-date">..writes</p>
-            <p class="review__user-copy"*ngIf="winner.isDisplayed">{{ winner.answer }}</p>
-            <button class="btn view-btn" *ngIf="winner.isDisplayed === false" (click)="toggleDisplayWinner(winner.id)">Display</button>
-            <button class="btn view-btn" *ngIf="winner.isDisplayed === false" (click)="toggleDisplayWinner(winner.id)">Undisplay</button>
-         </div>
-          <div class="review__rating" *ngFor="let winner of brainTeaser.brainTeaserWinners">
-            <div class="review__rating" *ngIf="winner.isDisplayed">{{ winner.dateCreated | date: "fullDate" }}</div>
-          </div>
-      </figcaption>
-      <figcaption class="review__user" *ngIf="view === 'answers'">
-        <img src="/assets/img/arenas8.jpg" alt="" class="review__photo">
-        <div class="review__user-box" *ngFor="let answer of brainTeaser.brainTeaserAnswers">
-           <p class="review__user-name">{{ answer.userName }}</p>
-           <p class="review__user-date">..writes</p>
-           <p class="review__user-copy">{{ answer.answer }}</p>
-           <button class="btn view-btn" *ngIf="answer.isApproved === false" (click)="approveAnswer(answer.id)">Approve</button>
-           <button class="btn view-btn" *ngIf="answer.isApproved">Already Approved</button>
-        </div>
-         <div class="review__rating" *ngFor="let answer of brainTeaser.brainTeaserAnswers">
-          <div class="review__rating">{{ answer.dateCreated | date: "fullDate" }}</div>
-         </div>
-     </figcaption>
-   </figure>
+    <div class="container py-5" *ngIf="isSelected(question.id)">
+      <div class="media-body" *ngIf="view === 'answers'">
+        <img src="/assets/img/arenas20.svg" alt="" class="side-image">
+           <div class="row" *ngFor="let option of question.questionOptions">
+            <div class="col-sm-9">
+             <form>
+               <fieldset class="form-group">
+                <div class="form-check">
+                  <label class="form-label-check" style="color: #000;">
+                     <input type="radio" class="form-check-input" name="" value="">
+                     {{ question.questionOptions }}
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-label-check" style="color: #000;">
+                     <input type="radio" class="form-check-input" name="" value="">
+                     Washignton dc
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-label-check" style="color: #000;">
+                     <input type="radio" class="form-check-input" name="" value="">
+                     Florida
+                  </label>
+                </div>
+             </fieldset>
+               <button class="btn btn-info mt-5">Submit</button>
+             </form>
+            </div>
+           </div>
+      </div>
+    </div>
   </div>
 </section>

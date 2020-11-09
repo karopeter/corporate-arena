@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../models/Contact';
 import { ContactService } from '../services/contact.service';
-import { ToastService } from '../services/toast.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,8 +10,9 @@ import { ToastService } from '../services/toast.service';
 })
 export class ContactComponent implements OnInit {
     contact: any = {};
+    title = 'toaster-not';
 
-  constructor(private contactService: ContactService, private toastService: ToastService) { }
+  constructor(private contactService: ContactService, private notifyService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -28,4 +29,12 @@ export class ContactComponent implements OnInit {
     });
   }
 
+  
+  showToasterSuccess() {
+     this.notifyService.showSuccess('Message submitted successfully!!', 'http://inspirecc-001-site1.dtempurl.com')
+  }
+
+  showToasterError() {
+     this.notifyService.showError('Something went wrong!!', 'http://inspirecc-001-site1.dtempurl.com')
+  }
 }

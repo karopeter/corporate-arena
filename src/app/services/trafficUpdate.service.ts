@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { CommentRequest } from './../models/commentRequest';
 import { CommentRequestTrafficUpdate } from './../models/commentRequestTrafficUpdate';
 
-const baseUrl = 'http://inspirecodeclub-001-site1.ftempurl.com';
+const baseUrl = 'http://inspirecc-001-site1.dtempurl.com';
 
 @Injectable({
  providedIn: 'root'
