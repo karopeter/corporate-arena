@@ -28,13 +28,7 @@ export class ContactComponent implements OnInit {
       console.warn('message failed to send');
     });
   }
-
-  
-  showToasterSuccess() {
-     this.notifyService.showSuccess('Message submitted successfully!!', 'http://inspirecc-001-site1.dtempurl.com')
-  }
-
-  showToasterError() {
-     this.notifyService.showError('Something went wrong!!', 'http://inspirecc-001-site1.dtempurl.com')
-  }
+  showToasterSuccess(): void {
+    this.notifyService.showSuccess('Message submitted successfully!!', 'http://inspirecc-001-site1.dtempurl.com');
+ }
 }

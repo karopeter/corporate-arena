@@ -36,22 +36,10 @@
             <div class="col-sm-9">
              <form>
                <fieldset class="form-group">
-                <div class="form-check">
+                <div class="form-check" *ngFor="let questionOption of question.questionOptions">
                   <label class="form-label-check" style="color: #000;">
                      <input type="radio" class="form-check-input" name="" value="">
-                     Atlanta
-                  </label>
-                </div>
-                <div class="form-check">
-                  <label class="form-label-check" style="color: #000;">
-                     <input type="radio" class="form-check-input" name="" value="">
-                     Washignton dc
-                  </label>
-                </div>
-                <div class="form-check">
-                  <label class="form-label-check" style="color: #000;">
-                     <input type="radio" class="form-check-input" name="" value="">
-                     Florida
+                     {{ questionOption.content }}
                   </label>
                 </div>
              </fieldset>

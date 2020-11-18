@@ -2,9 +2,7 @@ export interface Comment {
   id: number;
   title: string;
   content: string;
-  createdAt: Date;
+  dateCreated: Date;
 }
-
-export default Comment;
 
 

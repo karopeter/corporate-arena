@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from '../../models/Question';
 import { QuestionService } from '../../services/question.service';
+import { NotificationService } from '../../services/notification.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class QuestionCreateComponent implements OnInit {
   question: Question;
   content = '';
 
-  constructor(private questionService: QuestionService, private route: Router) { }
+  constructor(private questionService: QuestionService, private route: Router, private notifyService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -39,4 +40,7 @@ export class QuestionCreateComponent implements OnInit {
      });
   }
 
+  showToasterSuccess(): void {
+    this.notifyService.showSuccess('Question created successfully!!', 'http://inspirecc-001-site1.dtempurl.com');
+ }
 }

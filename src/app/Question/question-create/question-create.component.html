@@ -18,7 +18,7 @@
              <div class="form-group">
                <small class="form-text text-muted" id="helpFile">Maximum page size in three yottabytes.</small>
              </div>
-             <button type="submit" class="btn btn-success">Submit</button>
+             <button type="submit" class="btn btn-success" (click)="showToasterSuccess()">Submit</button>
            </form>
          </div>
          <a [routerLink]="['/Question-list']" class="btn btn-info mt-5" style="margin-left: 20rem;  margin-top: 2rem;">Load more</a>

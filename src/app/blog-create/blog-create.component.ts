@@ -42,8 +42,8 @@ export class BlogCreateComponent implements OnInit {
     });
   }
 
-  showToasterSuccess() {
-     this.notifyService.showSuccess('Message submitted successfully!!', 'http://inspirecc-001-site1.dtempurl.com')
+  showToasterSuccess(): void {
+     this.notifyService.showSuccess('Message submitted successfully!!', 'http://inspirecc-001-site1.dtempurl.com');
   }
 
 }

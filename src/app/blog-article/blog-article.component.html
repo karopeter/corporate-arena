@@ -1,11 +1,63 @@
-<div class="container my-5 mx-auto">
-  <h2 class="font-weight-bold text-center mb-5">Blog</h2>
-  <div class="d-flex blog">
-     <img src="/assets/img/arenas17.jpg" alt="" class="img-fluid mr-3"/>
-     <div class="align-self-center" *ngFor="let blog of blog">
-       <h2 class="font-weight-bold">
-         {{ blog.title }}
-       </h2>
+<div class="container">
+  <h1 class="heading__primary">Traffic Updates</h1>
+</div>
+
+<section class="section-panel">
+  <div class="row-panel">
+    <img src="/assets/img/arenas17.jpg" alt="" class="panel-image">
+    <div class="text">
+        <h1 class="flush-panel">
+          Friday Night Traffic Jam at Third
+          <br class="hidden-xs">
+          Mainland Bridge: Cause Unknown
+        </h1>
+        <span style="color: #000;">posted on Janurary 8th 2020</span>
+        <p class="long-panel">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti alias reprehenderit consequuntur maxime deserunt repellendus
+          <br class="hidden-xs">
+          Sed officiis sit deleniti rerum sunt perspiciatis
+          <br class="hidden-xs">
+          Deleniti alias reprehenderit consequuntur maxime deserunt repellendus, fugit obcaecati provident dolorem dolor?
+        </p>
+        <a href="#" class="no-pad demi">
+          see more <span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span>
+        </a>
+    </div>
+  </div>
+</section>
+
+
+<figure class="review">
+  <figcaption class="review__user">
+     <img src="/assets/img/arenas8.jpg" alt="" class="review__photo">
+     <div class="review__user-box">
+        <p class="review__user-name">Jackson Twitch</p>
+        <p class="review__user-date">..writes</p>
+        <p class="review__user-copy"> Deleniti alias reprehenderit consequuntur maxime deserunt repellendus, fugit obcaecati provident dolorem dolor?</p>
      </div>
+     <div class="review__rating">1 Minute Ago</div>
+  </figcaption>
+</figure>
+
+
+<div class="container" style="margin-top: 4rem;">
+  <div class="media">
+    <img src="/assets/img/arenas20.svg" alt="" class="side-image">
+    <div class="media-body">
+      <div class="row">
+       <div class="col-sm-9">
+        <form (ngSubmit)="submitComment()">
+          <div class="form-group">
+             <input class="form-control" type="text"  placeholder="Name" [(ngModel)]="title" name="name" />
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="body" id="" rows="3"  placeholder="Comment" [(ngModel)]="content"></textarea>
+          </div>
+        </form>
+         <button type="button" class="btn btn-primary">Submit</button>
+       </div>
+      </div>
+    </div>
   </div>
 </div>
+

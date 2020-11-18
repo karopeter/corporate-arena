@@ -18,10 +18,10 @@ export class BlogArticleComponent implements OnInit {
   constructor(private blogService: BlogService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.blogService.get(this.route.snapshot.paramMap.get('id')).subscribe((blog) => {
-      this.blog = blog;
-      this.articleId = blog.id;
-    });
+     this.blogService.get(this.route.snapshot.paramMap.get('id')).subscribe((blog) => {
+       this.blog = blog;
+       this.articleId = blog.id;
+     });
   }
 
   submitComment(): void {
@@ -32,14 +32,12 @@ export class BlogArticleComponent implements OnInit {
     const comment: CommentRequest = {
       title: this.title,
       content: this.content,
-      articleId: this.articleId,
+      articleId: this.articleId
     };
-
     this.blogService.postComment(this.articleId, comment).subscribe((newComment) => {
-      this.blog.comments = [newComment, ...this.blog.comments];
-      this.content = '';
-      this.title = '';
+       this.content = '';
+       this.title = '';
+       console.log(newComment);
     });
   }
-
 }

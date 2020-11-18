@@ -3,5 +3,3 @@ export interface CommentRequest {
   title: string;
   content: string;
 }
-
-export default CommentRequest;
