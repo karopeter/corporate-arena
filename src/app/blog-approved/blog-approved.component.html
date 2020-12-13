@@ -1,0 +1,90 @@
+<div class="container">
+  <h1 class="heading__primary">Approved Blog</h1>
+</div>
+
+<a [routerLink]="['/blog-create']" class="title">
+  <h2 class="text-left link" style="text-align: center; margin-left: 55rem; margin-top: 2rem; font-size: 15px; font-weight: 300;">Create Article</h2>
+</a>
+
+<section class="section-page">
+   <div class="container-page" *ngIf="approvedBlog">
+    <img src="/assets/img/arenas6.jpg" alt="" class="page-image">
+    <div class="page-text">
+      <a href="#">
+      <h1 class="small-caps">
+       {{ approvedBlog.title }}
+      </h1>
+      </a>
+     <span style="color: #000;">posted on {{ approvedBlog.dateCreated | date: "fullDate" }}</span>
+     <p class="long-plan">
+      {{ approvedBlog.content }}
+     </p>
+     <a [routerLink]="['/blog-article']"><p class="long-paln" style="color: #6979FB; margin-left: 1rem;">see more <span><img src="/assets/img/arenas14.svg" alt="" class="span__image--2"></span></p></a>
+   </div>
+   </div>
+</section>
+
+<section class="section-sector" *ngIf="blogs">
+  <div class="row" *ngFor="let blog of blogs">
+     <div class="col-1-of-3">
+       <div class="sector__box--1">
+        <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
+        <h2 class="heading__secondary">
+          {{ blog.title }}
+        </h2>
+        <span style="margin-left: 1rem; color: rgb(39, 38, 38);">{{ blog.dateCreated | date: "longDate"}}</span>
+        <p class="long__sector">
+         {{ blog.content }}
+        </p>
+        <div class="seenon">
+         <div class="col-1-of-2">
+           <a href="#" ><span style="color: rgb(39, 38, 38);"><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">{{blog.comments?.length > 0 ? blog.comments.length : "No"}}</span></a>
+          </div>
+          <div class="col-1-of-2">
+           <a routerLink="{{ getUrl(blog.id)}}" style="color: rgb(39, 38, 38);">Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
+          </div>
+        </div>
+       </div>
+     </div>
+     <div class="col-1-of-3">
+       <div class="sector__box--1">
+        <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
+        <h2 class="heading__secondary">
+          {{ blog.title }}
+        </h2>
+        <span style="margin-left: 1rem; color: rgb(39, 38, 38);">{{ blog.dateCreated | date: "longDate"}}</span>
+        <p class="long__sector">
+         {{ blog.content }}
+        </p>
+        <div class="seenon">
+         <div class="col-1-of-2">
+           <a href="#" ><span style="color: rgb(39, 38, 38);"><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">{{blog.comments?.length > 0 ? blog.comments.length : "No"}}</span></a>
+          </div>
+          <div class="col-1-of-2">
+           <a routerLink="{{ getUrl(blog.id)}}" style="color: rgb(39, 38, 38);">Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
+          </div>
+        </div>
+       </div>
+     </div>
+     <div class="col-1-of-3">
+       <div class="sector__box--1">
+        <img src="/assets/img/arenas22.jpg" alt="" class="blog__image">
+        <h2 class="heading__secondary">
+          {{ blog.title }}
+        </h2>
+        <span style="margin-left: 1rem; color: rgb(39, 38, 38);">{{ blog.dateCreated | date: "longDate"}}</span>
+        <p class="long__sector">
+         {{ blog.content }}
+        </p>
+        <div class="seenon">
+         <div class="col-1-of-2">
+           <a href="#" ><span style="color: rgb(39, 38, 38);"><img src="/assets/img/arenas25.svg" alt="" class="span__image--1">{{blog.comments?.length > 0 ? blog.comments.length : "No"}}</span></a>
+          </div>
+          <div class="col-1-of-2">
+           <a routerLink="{{ getUrl(blog.id)}}" style="color: rgb(39, 38, 38);">Read Story<span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></a>
+          </div>
+        </div>
+       </div>
+     </div>
+     </div>
+</section>

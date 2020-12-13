@@ -12,7 +12,6 @@ const baseUrl = 'http://inspirecc-001-site1.dtempurl.com';
  providedIn: 'root'
 })
 
-
 export class TrafficUpdateService {
 
     httpOptions = {

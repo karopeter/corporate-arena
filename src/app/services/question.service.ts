@@ -12,7 +12,7 @@ const baseUrl = 'http://inspirecc-001-site1.dtempurl.com';
 })
 export class QuestionService {
      httpOptions = {
-        headers: new HttpHeaders({ 'content-type': 'application/json' })
+        headers: new HttpHeaders({ 'content-type': 'application/json'})
      };
 
   constructor(private http: HttpClient) { }

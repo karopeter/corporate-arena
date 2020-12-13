@@ -23,7 +23,7 @@ export class BlogComponent implements OnInit {
   }
 
   getUrl(slug: string): string {
-    return `/blog/${slug}`;
+    return `/blog-article/${slug}`;
   }
 
 }

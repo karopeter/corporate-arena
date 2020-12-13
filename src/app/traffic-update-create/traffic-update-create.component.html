@@ -10,7 +10,7 @@
       <div class="form-group">
         <textarea class="form-control" id="" row="7" placeholder="body" [(ngModel)]="content"  name="body" style="margin-left: 10rem;"></textarea>
       </div>
-      <button type="submit"  class="btn btn-primary btn-large" style="margin-left: 10rem;">Submit</button>
+      <button type="submit" (click)="showToasterSuccess()"  class="btn btn-primary btn-large" style="margin-left: 10rem;">Submit</button>
       </form>
    </div>
 </div>

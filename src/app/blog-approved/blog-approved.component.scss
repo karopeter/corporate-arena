@@ -1,0 +1,257 @@
+// GRID
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 2rem;
+
+$color-primary-blue: #505f98;
+$color-primary-grey: #F7F5F9;
+$color-primary: #fff;
+$color-light-1: #efefef;
+$color-light-2: #e8e8e8;
+$color-light-3: #fcfcfc;
+$color-dark: #000;
+$color-light-grey: #E5E7FA;
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+$color-grey-dark-1: #54483A;
+
+$font-display: 'Josefin Sans', sans-serif;
+
+%heading {
+  font-family: $font-display;
+  font-weight: 400;
+}
+
+
+.heading__primary {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: $color-primary-blue;
+}
+
+.heading__secondary {
+  text-align: left;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: $color-dark;
+  margin-left: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.heading-2 {
+  @extend %heading;
+  font-size: 4rem;
+  font-style: italic;
+  line-height: 1;
+
+  &--light { color: $color-grey-light-1; }
+  &--dark { color: $color-grey-dark-1; }
+}
+
+.heading-3 {
+  @extend %heading;
+  font-size: 1.6rem;
+  color: $color-primary;
+  text-transform: uppercase;
+}
+
+.section-sector {
+   background-color: $color-primary-grey;
+   margin-top: 2rem;
+}
+
+.sector__box--1 {
+   background-color: $color-primary;
+   font-size: 1rem;
+   padding: 2rem;
+   box-shadow: 0 1.5rem 6rem rgba($color-dark, .14);
+   border-radius: 3px;
+   transition: transform .3s;
+   margin-left: 2rem;
+}
+
+
+.blog__image {
+  width: 40%;
+  height: auto;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.span__image {
+  width: 20%;
+  height: 20%;
+}
+
+.span__image--1 {
+  width: 20%;
+  height: 20%;
+}
+
+.span__image--2 {
+  margin-left: 1rem;
+}
+
+
+
+.long__sector {
+  text-align: left;
+  margin-top: 1.5rem;
+  color: $color-dark;
+  font-size: 1rem;
+  margin-left: 1rem;
+  line-height: 1.5rem;
+}
+
+.section-page {
+  background: $color-light-grey;
+  background-size: cover;
+  width: 60%;
+  height: 400px;
+  overflow: hidden;
+  background-position: 50%;
+  margin-top: 8rem;
+  margin-left: 10rem;
+  margin-bottom: 5rem;
+}
+
+.section-page .container-plan {
+   height: 400px;
+   position: relative;
+}
+
+.section-page .page-image {
+  height: 4rem;
+}
+
+.section-page .page-image {
+  margin-left: 4rem;
+  position: absolute;
+  z-index: 3;
+  width: 20rem;
+}
+
+
+.section-page .page-image {
+  display: block;
+  height: 20rem;
+  width: 20rem;
+  margin-right: auto;
+  margin-top: 4rem;
+}
+
+.page-image {
+  bottom: 4rem;
+  border: 0;
+  width: 20rem;
+  height: 20rem;
+  float: top;
+  margin-left: 7rem;
+}
+
+.section-page .page-text {
+  padding-top: 2rem;
+  max-width: 370px;
+  margin-right: 2.5rem;
+}
+
+.section-page .page-text {
+  padding-top: 2rem;
+  position: relative;
+  z-index: 4;
+  width: 50%;
+  max-width: 590px;
+  min-width: 290px;
+  margin-right: 30px;
+  text-align: center;
+  float: right;
+}
+
+.section-page .page-text .small-caps {
+   padding-top: 2rem;
+  font-size: 1.5rem;
+}
+
+.section-page .page-text .small-caps {
+  color: $color-primary-blue;
+  font-weight: 500;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+}
+
+.section-page .page-text .long-plan {
+  color: $color-dark;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+
+
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+  }
+
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @mixin respond($breakpoint) {
+        @if $breakpoint == tab-port {
+          margin-right: 0;
+          margin-bottom: $gutter-vertical-small;
+        }
+      }
+    }
+    @mixin respond($breakpoint) {
+      @if $breakpoint == tab-port {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+  .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+  }
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+  .col-1-of-5 {
+    width: calc((100% - 4 * #{$gutter-horizontal}) / 5);
+  }
+  .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+  }
+  .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+  }
+}

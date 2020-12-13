@@ -18,11 +18,15 @@ export class BlogService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Blog[]> {
-     return this.http.get<Blog[]>(`${baseUrl}/api/Article/GetAllArticles`);
+     return this.http.get<Blog[]>(`${baseUrl}/api/Article/GetArticles`);
   }
 
    get(slug: string): Observable<Blog> {
-      return this.http.get<Blog>(`${baseUrl}/api​/Article​/GetArticle​/${slug}`);
+      return this.http.get<Blog>(`${baseUrl}/api​/Article​/GetArticle​/${slug}`, this.httpOptions);
+   }
+
+   getApproved(): Observable<Blog[]> {
+     return this.http.get<Blog[]>(`${baseUrl}/api/Article/GetApprovedArticles`);
    }
 
    postArticle(data: Blog): Observable<Blog> {

@@ -8,7 +8,7 @@
    <div class="container-page" *ngFor="let trafficUpdate of trafficUpdates">
     <img src="/assets/img/arenas6.jpg" alt="" class="page-image">
     <div class="page-text">
-      <a href="#">
+      <a routerLink="{{ getUrl(trafficUpdate.id)}}">
       <h1 class="small-caps">
         {{ trafficUpdate.title }}
       </h1>
@@ -17,7 +17,7 @@
       <p class="long-plan">
         {{ trafficUpdate.description }}
       </p>
-      <a routerLink="{{getUrl(trafficUpdate.id)}}"><p class="long-paln" style="color: #6979FB; margin-left: 1rem;">see more <span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></p></a>
+      <a routerLink="{{ getUrl(trafficUpdate.id)}}"><p class="long-paln" style="color: #6979FB; margin-left: 1rem;">see more <span><img src="/assets/img/arenas14.svg" alt="" class="span__image"></span></p></a>
     </div>
    </div>
 </section>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrafficUpdateService } from '../services/trafficUpdate.service';
+import { NotificationService } from '../services/notification.service';
 import { TrafficUpdate } from '../models/trafficUpdate';
 import { Router } from '@angular/router';
 
@@ -15,7 +16,7 @@ export class TrafficUpdateCreateComponent implements OnInit {
   content = '';
 
 
-  constructor(private trafficService: TrafficUpdateService, private route: Router) { }
+  constructor(private trafficService: TrafficUpdateService, private route: Router, private notifyService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -39,5 +40,9 @@ export class TrafficUpdateCreateComponent implements OnInit {
         console.log(response);
     });
   }
+
+  showToasterSuccess(): void {
+    this.notifyService.showSuccess('Message submitted successfully!!', 'http://inspirecc-001-site1.dtempurl.com');
+ }
 
 }

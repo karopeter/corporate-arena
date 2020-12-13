@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Blog } from '../models/blog';
-import { CommentRequest } from '../models/commentRequest';
+import {  CommentRequest } from '../models/commentRequest';
 import { BlogService } from '../services/blog.service';
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-blog-article',
@@ -11,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BlogArticleComponent implements OnInit {
   blog: Blog;
+  approvedBlog: Blog;
   title = '';
   content = '';
   articleId: number;
@@ -26,18 +28,18 @@ export class BlogArticleComponent implements OnInit {
 
   submitComment(): void {
     if (this.content.length === 0 || this.title.length === 0) {
-       return;
+      return;
     }
-
     const comment: CommentRequest = {
       title: this.title,
       content: this.content,
       articleId: this.articleId
     };
-    this.blogService.postComment(this.articleId, comment).subscribe((newComment) => {
-       this.content = '';
-       this.title = '';
-       console.log(newComment);
+    this.blogService.postComment(this.articleId, comment).subscribe((responseData) => {
+      this.content = '';
+      this.title = '';
+      console.log(responseData);
     });
   }
+
 }

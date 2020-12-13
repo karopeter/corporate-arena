@@ -15,6 +15,8 @@ import { QuestionListComponent } from './Question/question-list/question-list.co
 import { QuestionDetailsComponent } from './Question/question-details/question-details.component';
 import { QuestionOptionComponent } from './Question/question-option/question-option.component';
 import { BlogArticleComponent } from './blog-article/blog-article.component';
+import { BlogApprovedComponent } from './blog-approved/blog-approved.component';
+import { TrafficUpdateArticleComponent } from './traffic-update-article/traffic-update-article.component';
 
 
 
@@ -32,11 +34,13 @@ export const APP_ROUTES: Routes = [
   { path: 'Question-option/:id', component: QuestionOptionComponent },
   { path: 'traffics', component: TrafficComponent },
   { path: 'traffic-update-create', component: TrafficUpdateCreateComponent  },
+  { path: 'traffic-update-article/:id', component: TrafficUpdateArticleComponent },
   { path: 'contacts', component: ContactComponent },
   { path: 'vacancies', component: VacanciesComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blog-create', component: BlogCreateComponent },
-  { path: 'blog/:id', component: BlogArticleComponent }
+  { path: 'blog-article/:id', component: BlogArticleComponent },
+  { path: 'blog-approved', component: BlogApprovedComponent }
 ];
 
 

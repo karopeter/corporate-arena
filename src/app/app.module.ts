@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -31,8 +31,8 @@ import { QuestionDetailsComponent } from './Question/question-details/question-d
 import { QuestionEditComponent } from './Question/question-edit/question-edit.component';
 import { QuestionOptionComponent } from './Question/question-option/question-option.component';
 import { NotificationComponent } from './notification/notification.component';
-import { ErrorInterceptor } from './error.interceptor';
-import { ErrorComponent } from './error/error.component';
+import { BlogApprovedComponent } from './blog-approved/blog-approved.component';
+import { TrafficUpdateArticleComponent } from './traffic-update-article/traffic-update-article.component';
 
 
 
@@ -53,6 +53,7 @@ import { ErrorComponent } from './error/error.component';
     BlogComponent,
     BlogCreateComponent,
     BlogArticleComponent,
+    BlogApprovedComponent,
     BrainTeaserGetWithAnswerComponent,
     BrainTeaserGetComponent,
     TrafficUpdateCreateComponent,
@@ -62,7 +63,7 @@ import { ErrorComponent } from './error/error.component';
     QuestionEditComponent,
     QuestionOptionComponent,
     NotificationComponent,
-    ErrorComponent
+    TrafficUpdateArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -84,17 +85,16 @@ import { ErrorComponent } from './error/error.component';
       { path: 'Question-option/:id', component: QuestionOptionComponent },
       { path: 'traffics', component: TrafficComponent },
       { path: 'traffic-update-create', component: TrafficUpdateCreateComponent  },
+      { path: 'traffic-update-article/:id', component: TrafficUpdateArticleComponent },
       { path: 'contacts', component: ContactComponent },
       { path: 'vacancies', component: VacanciesComponent },
       { path: 'blog', component: BlogComponent },
       { path: 'blog-create', component: BlogCreateComponent },
-      { path: 'blog/:id', component: BlogArticleComponent }
+      { path: 'blog-article/:id', component: BlogArticleComponent },
+      { path: 'blog-approved', component: BlogApprovedComponent }
   ])
 ],
-  providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
-  ],
-  bootstrap: [AppComponent],
-  entryComponents: [ErrorComponent]
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
