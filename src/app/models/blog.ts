@@ -5,7 +5,7 @@ export interface Blog {
   title: string;
   slug: string;
   content: string;
-  dateCreated: Date;
+ dateCreated: Date;
   publishedAt: Date;
   comments: Comment[];
 }

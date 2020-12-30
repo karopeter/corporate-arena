@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { NotificationService } from './../services/notification.service';
+import { ErrorInterceptor } from '../error.interceptor';
 
 @Component({
   selector: 'app-error',

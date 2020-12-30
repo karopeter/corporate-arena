@@ -21,12 +21,16 @@ export class BlogService {
      return this.http.get<Blog[]>(`${baseUrl}/api/Article/GetArticles`);
   }
 
-   get(slug: string): Observable<Blog> {
-      return this.http.get<Blog>(`${baseUrl}/api​/Article​/GetArticle​/${slug}`, this.httpOptions);
+   getArticleById(slug: string): Observable<Blog> {
+      return this.http.get<Blog>(`${baseUrl}/api​/Article​/GetArticle​/${slug}`);
    }
 
    getApproved(): Observable<Blog[]> {
      return this.http.get<Blog[]>(`${baseUrl}/api/Article/GetApprovedArticles`);
+   }
+
+   getApprovedById(slug: string): Observable<Blog> {
+      return this.http.get<Blog>(`${baseUrl}/api/Article/GetApprovedArticle/${slug}`);
    }
 
    postArticle(data: Blog): Observable<Blog> {

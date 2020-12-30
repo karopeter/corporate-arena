@@ -17,6 +17,8 @@ import { QuestionOptionComponent } from './Question/question-option/question-opt
 import { BlogArticleComponent } from './blog-article/blog-article.component';
 import { BlogApprovedComponent } from './blog-approved/blog-approved.component';
 import { TrafficUpdateArticleComponent } from './traffic-update-article/traffic-update-article.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 
 
@@ -40,7 +42,9 @@ export const APP_ROUTES: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'blog-create', component: BlogCreateComponent },
   { path: 'blog-article/:id', component: BlogArticleComponent },
-  { path: 'blog-approved', component: BlogApprovedComponent }
+  { path: 'blog-approved', component: BlogApprovedComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: SignupComponent }
 ];
 
 

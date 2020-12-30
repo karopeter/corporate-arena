@@ -1,7 +1,7 @@
 export interface Comment {
   id: number;
-  title: string;
-  content: string;
+  name: string;
+  body: string;
   dateCreated: Date;
 }
 

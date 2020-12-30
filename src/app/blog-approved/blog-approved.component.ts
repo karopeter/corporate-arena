@@ -20,8 +20,4 @@ export class BlogApprovedComponent implements OnInit {
        this.blogs = blogs.slice(1);
     });
   }
-
-  getUrl(slug: string): string {
-    return `/blog-article/${slug}`;
-  }
 }

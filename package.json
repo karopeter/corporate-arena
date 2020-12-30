@@ -25,6 +25,7 @@
     "helmet": "^4.1.0",
     "mongoose": "^5.10.3",
     "morgan": "^1.10.0",
+    "ngx-spinners": "^1.1.1",
     "ngx-toastr": "^13.1.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

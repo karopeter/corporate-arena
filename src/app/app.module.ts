@@ -33,6 +33,8 @@ import { QuestionOptionComponent } from './Question/question-option/question-opt
 import { NotificationComponent } from './notification/notification.component';
 import { BlogApprovedComponent } from './blog-approved/blog-approved.component';
 import { TrafficUpdateArticleComponent } from './traffic-update-article/traffic-update-article.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 
@@ -63,7 +65,9 @@ import { TrafficUpdateArticleComponent } from './traffic-update-article/traffic-
     QuestionEditComponent,
     QuestionOptionComponent,
     NotificationComponent,
-    TrafficUpdateArticleComponent
+    TrafficUpdateArticleComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +95,9 @@ import { TrafficUpdateArticleComponent } from './traffic-update-article/traffic-
       { path: 'blog', component: BlogComponent },
       { path: 'blog-create', component: BlogCreateComponent },
       { path: 'blog-article/:id', component: BlogArticleComponent },
-      { path: 'blog-approved', component: BlogApprovedComponent }
+      { path: 'blog-approved', component: BlogApprovedComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: SignupComponent }
   ])
 ],
   providers: [],

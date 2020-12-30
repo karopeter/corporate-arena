@@ -1,0 +1,48 @@
+<div class="container" style="margin: 5% auto;">
+  <div class="card">
+     <h1 class="card-header" style="color: #000;">Register</h1>
+     <div class="card-body">
+       <form class="ng-untouched ng-pristine ng-invalid">
+         <div class="row">
+           <div class="form-group col-md-6">
+             <label for="username" style="color: #000;">Username</label>
+             <input type="text" formcontrolname="username" class="form-control ng-untouched ng-pristine ng-invalid">
+           </div>
+           <div class="form-group col-md-6">
+             <label for="email" style="color: #000;">Email</label>
+             <input type="text" formcontrolname="email" class="form-control ng-untouched ng-pristine ng-invalid">
+           </div>
+         </div>
+         <div class="row">
+           <div class="form-group col-md-6">
+              <label for="firstname" style="color: #000;">First Name</label>
+              <input type="text" formcontrolname="firstName" class="form-control ng-untouched ng-pristine ng-invalid">
+           </div>
+           <div class="form-group col-md-6">
+             <label for="lastname" style="color: #000;">Last Name</label> 
+             <input type="text" formcontrolname="lastName" class="form-control ng-untouched ng-pristine ng-invalid">
+           </div>
+         </div>
+         <div class="row">
+           <div class="form-group col-md-6">
+             <label for="password" style="color: #000;">Password</label>
+             <input type="password" formcontrolname="password" class="form-control ng-untouched ng-pristine ng-invalid">
+           </div>
+           <div class="form-group col-md-6">
+              <label for="confirmPassword" style="color: #000;">Confirm Password</label>
+              <input type="password" formcontrolname="password" class="form-control ng-untouched ng-pristine ng-invalid">
+           </div>
+         </div>
+         <div class="form-group row">
+           <div class="col-md-6" style="color: #000;">
+             Already have an account
+             <a [routerLink]="['/login']" class="btn btn-link">Login</a>
+           </div>
+           <div class="col-md-6">
+             <button class="btn btn-primary" style="width: 70%;">Submit</button>
+           </div>
+         </div>
+       </form>
+     </div>
+  </div>
+</div>

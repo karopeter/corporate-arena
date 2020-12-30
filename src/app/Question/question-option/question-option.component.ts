@@ -3,6 +3,7 @@ import { QuestionService } from '../../services/question.service';
 import { Question } from '../../models/Question';
 import { QuestionOptions } from '../../models/QuestionOptions';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from '../../services/notification.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class QuestionOptionComponent implements OnInit {
   isFalse = false;
   selectedEntry: boolean;
 
-  constructor(private questionService: QuestionService, private route: ActivatedRoute) { }
+  constructor(private questionService: QuestionService, private route: ActivatedRoute, private notifyService: NotificationService) { }
 
   ngOnInit(): void {
     this.questionService.getQuestion(this.route.snapshot.paramMap.get('id')).subscribe((question) => {
@@ -79,4 +80,8 @@ export class QuestionOptionComponent implements OnInit {
      console.log(`Button clicked ${entry}`);
      this.selectedEntry = entry;
    }
+
+   showToasterSuccess(): void {
+    this.notifyService.showSuccess('Question option created successfully!!', 'http://inspirecc-001-site1.dtempurl.com');
+ }
 }
